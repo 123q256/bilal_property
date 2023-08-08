@@ -1,0 +1,145 @@
+
+body{
+margin:0px;
+padding: 0px;
+}
+h1{
+    padding: 0px;
+    margin: 0px;
+}
+h2{
+    padding: 0px;
+    margin: 0px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+}
+h4{
+    padding: 0px;
+    margin: 0px;
+}
+h5{
+    padding: 0px;
+    margin: 0px;
+}
+h6{
+    padding: 0px;
+    margin: 0px;
+}
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+li{
+    padding: 0px;
+    margin: 0px;;
+}
+
+
+.container{
+    max-width: 1920px;
+  }
+
+  .filter_dropdown{
+    width: 137px;background-color: #F7F7F7;color: #5C5C5C;padding-top:9px;padding-bottom: 9px;padding-left:10px;border: none;
+  }
+
+.property_main_to_container{
+    padding: 30px; background-color: #F7F7F7;
+}
+.details_a1{
+    background-color: #0367A6;border-radius: 0px;
+}
+.details_a2{
+    background-color: #1B98E0;border-radius: 0px;
+}
+
+.grid_drop_down_item1{
+    margin-left: 5px;margin-right: 5px; float: left;
+}
+
+.grid_drop_down_item_butto1{
+    background-color: #F7F7F7;
+}
+
+.grid_drop_down_item2{
+    margin-left: 5px;margin-right: 5px; float: left;margin-bottom:3px
+}
+.grid_drop_down_item_butto2{
+    background-color: #F7F7F7;
+}
+
+.grid_drop_down_item_butto3{
+    background-color: #F7F7F7;
+}
+.grid_drop_down_item_butto4{
+    background-color: #F7F7F7;
+}
+.grid_drop_down_item_butto5{
+    background-color: #F7F7F7;
+}
+.grid_drop_down_item_butto6{
+    background-color: #F7F7F7;
+}
+.grid_drop_down_item_butto7{
+    background-color: #F7F7F7;
+}
+
+.grid_drop_down_item3{
+    margin-left: 5px;margin-right: 5px; float: left;margin-bottom:3px;
+}
+
+.grid_drop_down_item4{
+    margin-left: 5px;margin-right: 5px;float: left;margin-bottom:3px;
+}
+
+.grid_drop_down_item5{
+    margin-left: 5px;margin-right: 5px;float: left;margin-bottom:3px;
+}
+
+.grid_drop_down_item6{
+    margin-left: 5px;margin-right: 5px;float: left;margin-bottom:3px;
+}
+
+.grid_drop_down_item7{
+    margin-left: 5px;margin-right: 5px; float: left;margin-bottom:3px
+}
+
+.allpr_heading{
+    padding-top: 10px;float: left;margin-right:5px;
+}
+
+
+.Reset_pro_detals{
+    float: left;margin-top: 6px;margin-bottom:3px
+}
+
+.achor_prop_tetails{
+    text-decoration: none; color:black;margin-top: 7px; 
+}
+
+.Search_pro_detals{
+    margin-left:10px ;float: left;
+}
+
+.Search_pro_detals_btn{
+    padding-top: 2px;padding-bottom: 3px;margin-top: 5px; background-color:#0367A6 ;color:white;padding-left: 25px;
+                    padding-right: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
