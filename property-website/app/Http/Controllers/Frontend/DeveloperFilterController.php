@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class DeveloperFilterController extends Controller
 {
     public function filter_list(Request $request ){
-    // dd($request->all());
+    //  dd($request->all());
         // $ararayset =  array();
 
       
@@ -111,7 +111,7 @@ class DeveloperFilterController extends Controller
 
         if(empty($request->area) && empty($request->bedroom) && empty($request->propertyType) && empty($request->competion) && empty($request->price) && empty($request->sqfoot) ){
 
-            $items = ListingProperty::where('id','-90');
+            $itemstwo = ListingProperty::where('id','-90');
         }else{
     
 

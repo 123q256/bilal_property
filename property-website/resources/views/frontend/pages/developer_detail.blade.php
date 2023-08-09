@@ -17,6 +17,9 @@ img.alignright {
   float: right;
   margin: 0 0 2.5em 2.5em;
 }
+
+
+
 </style>
 <!-- Property Type Start  -->
 
@@ -127,10 +130,11 @@ img.alignright {
             
                 
                     <div class="Reset_pro_detals">
-                        <a href="#" id="resetButton" class="achor_prop_tetails">
+                        <a type="button" id="resetButton" class="achor_prop_tetails">
                             <i class="fa fa-refresh" aria-hidden="true"></i>Reset
                         </a>
                     </div>
+                    <input type="hidden" id="reset_hidden_ids" name="reset_hidden_ids" value="{{ $developers->id }}" >
                     {{-- <div class="Search_pro_detals">
                         <button class="btn Search_pro_detals_btn" >Search</button>
                     </div>  --}}
@@ -138,6 +142,12 @@ img.alignright {
             </div> 
         </div>
     </div>
+   
+ 
+   
+   
+
+
     <div class="container" style="width: 95%!important;">
         <div class="row"  style="overflow-x: auto; white-space: nowrap;">
             <table class="table" id="myTable" >
@@ -155,8 +165,9 @@ img.alignright {
                     </tr>
                 </thead>
                 <tbody id="addData">
+              
                 <?php # $developers = App\Models\ListingProperty::where('status', '0')->get(); ?> 
-
+              
                 @foreach ($listing_details as $listing_detail)
                 <?php $listing_image11 = App\Models\ListingPropertyImage::where('list_property_id', $listing_detail->id)->first(); ?> 
                 <?php $typeofpropertys11 = App\Models\TypeOfProperty::where('id', $listing_detail->type_of_property)->first(); ?> 
@@ -164,7 +175,7 @@ img.alignright {
                 <?php $developers11 = App\Models\Developer::where('id', $listing_detail->about_the_developer)->first(); ?> 
                 <?php $locations11 = App\Models\Location::where('id', $listing_detail->location)->first(); ?> 
                 <?php $completion = App\Models\CompletionDate::where('id', $listing_detail->handover)->first(); ?> 
-
+               
                 <tr >
                     <td><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image11->list_pro_image) }}" width="40px"></td>
                     <td>{{  $listing_detail->title_name }}</td>
@@ -218,9 +229,9 @@ img.alignright {
                 <p class="card-text"> Types: <span>{{ $typeofpropertys->property_type }} |  Bed Room : {{ $bedrooms->number_of_bed }}</span></p>
                   <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_details'.'/'.$listingProperty->id) }}" class="btn btn-primary col-12 details_a1">DETAILS</a>
+                        <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_details'.'/'.$listingProperty->id) }}" class="btn btn-primary col-12 details_a1122">DETAILS</a>
                         </div>
-                        <div class="col-xl-6 col-lg-12 mt-2" class="btn btn-primary"><a href="#" class="btn btn-primary col-12 details_a2">REGISTER NOW</a>
+                        <div class="col-xl-6 col-lg-12 mt-2" class="btn btn-primary"><button value="{{ $listingProperty->id }}"   class="btn btn-primary col-12 details_a2 open-modal-btn">REGISTER NOW</button>
                         </div>
                     </div>
                   </div>
@@ -254,7 +265,9 @@ img.alignright {
 
 
 
-
+        
+        
+         
         
   
    
@@ -276,7 +289,20 @@ img.alignright {
     var competion = $('#completionfilter').val();
     var price = $('#pricefilter').val();
     var sqfoot = $('#sqfootfilter').val();
-   
+    $('#addData').html(`
+    <tr>
+      <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+       
+          <div class="loader1122" id="loader-4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    
+      </th>
+    </tr>
+ 
+`);
       //  alert(area); 
  var dd = new FormData();
          dd.append("area",area);
@@ -301,6 +327,7 @@ img.alignright {
             processData: false,
             contentType: false,
             success: function(response) {
+            
                 $('#addData').html("");
 
 
@@ -356,7 +383,43 @@ img.alignright {
     $('#completionfilter').val('');
     $('#pricefilter').val('');
     $('#sqfootfilter').val('');
+ var modelIdget =   $('#reset_hidden_ids').val();
     // location.reload();
+    $('#addData').html(`
+    <tr>
+      <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+       
+          <div class="loader1122" id="loader-4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    
+      </th>
+    </tr>
+ 
+`);
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+      });
+      $.ajax({
+          async: true,
+          type: 'post',
+          url: "{{ url('/model_filter_list_developer_details')}}/"+modelIdget,
+          cache: false,
+          processData: false,
+          contentType: false,
+          success: function(response) {
+            $('#addData').html("");
+                $('#myTable').DataTable().clear().destroy();
+                $("#addData").html(response);
+                new DataTable('#myTable');
+          }
+      });
+
+
   });
 });
     </script>

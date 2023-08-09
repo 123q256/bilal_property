@@ -46,7 +46,7 @@ class FrondendController extends Controller
 
         return view('frontend.pages.developer_detail',compact('listing_details','developers','listing_detai_paginate'));
     }
-
+    
     public function model_filter_lists($id)
     {
         $listing_details = ListingProperty::where('about_the_developer', $id)->get();
@@ -77,6 +77,41 @@ class FrondendController extends Controller
 
                     echo $tableRow;
    
+    }
+
+    public function model_filter_list_developer_details($id)
+    {
+        // die();
+
+        $listing_details = ListingProperty::where('about_the_developer', $id)->get();
+    
+        $tableRow = '';
+        foreach($listing_details as $listing_detail){
+            $listing_image11 = ListingPropertyImage::where('list_property_id', $listing_detail->id)->first();
+            $typeofpropertys11 = TypeOfProperty::where('id', $listing_detail->type_of_property)->first();
+            $bedrooms11 = Bedroom::where('id', $listing_detail->number_of_bedrooms)->first();
+            $developers11 = Developer::where('id', $listing_detail->about_the_developer)->first();
+            $locations11 = Location::where('id', $listing_detail->location)->first();
+            $completion = CompletionDate::where('id', $listing_detail->handover)->first();
+        
+            // Generate the HTML table row with the data
+
+            $tableRow .= '<tr>' .
+                        '<td><img src="/admin_images/Listing_property_images/' . $listing_image11->list_pro_image . '" width="40px"></td>' .
+                        '<td>' . $listing_detail->title_name . '</td>' .
+                        '<td>' . $developers11->developer_name . '</td>' .
+                        '<td>' . $locations11->location . '</td>' .
+                        '<td>' . $bedrooms11->number_of_bed . '</td>' .
+                        '<td>' . $typeofpropertys11->property_type . '</td>' .
+                        '<td>' . $completion->completions . '</td>' .
+                        '<td>' . $listing_detail->budgets . '</td>' .
+                        '<td>' . $listing_detail->desired_size . '</td>' .
+                        '</tr>';
+         }
+
+                    echo $tableRow;
+
+
     }
 
     public function model_filter_optionOne($id){

@@ -70,28 +70,37 @@
 <div class="second_main_row">
   <div class="container">
      
-      <div class="row">
-          <div class="col-md-12">
-
-
-
+      <div class="row" >
+          
             
 
-            <div class="container" id="pakistancontainer">
+            <div id="pakistancontainer" >
+              <div class="col-md-3">
                 <div class="logo">
                  <a href="{{ url('/') }}"><img src="{{asset("logo-image/image_2.png")}}" width="80%" alt="Logo"></a> 
                 </div>
-                <div class="menu">
-                  <div class="mobile-icon" onclick="toggleMenu()">&#9776;</div>
-                  <ul class="menu-list" id="menuList">
-                    <li><a  class="b_sub_menus" href="{{ url('/') }}">Home</a></li>
-                    <li><a class="b_sub_menus"  href="{{ url('/developers') }}">Developers</a></li>
-                    <li><a  class="b_sub_menus" href="#">Project Area</a></li>
-                    <li><a class="b_sub_menus"  href="{{ url('/propert_types') }}">Property Types</a></li>
-                    <li><a class="b_sub_menus"  href="{{ url('/contacts') }}">Contact Us</a></li>
-                  </ul>
-                  <div class="close-btn" id="closeBtn" onclick="closeMenu()"></div>
-                </div>
+              </div>
+
+              <div class="col-md-2 hello_div"></div>
+                <div class="col-md-7 one_menu">
+
+                  <div class="menu">
+                    <div class="mobile-icon" onclick="toggleMenu()">&#9776;</div>
+         
+                              <ul class="menu-list" id="menuList">
+                                <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('/') ? 'menus_radius' : ''}}" ><a style="padding-bottom: 8px;" id="{{ Request::is('/') ? 'menus_radius_id' : ''}}" class="b_sub_menus" href="{{ url('/') }}">Home</a></li>
+                                <li style="padding: 8px;" class="set_hover  setmainhover {{ Request::is('developers') ? 'menus_radius' : ''}} "  ><a class="b_sub_menus" id="{{ Request::is('developers') ? 'menus_radius_id' : ''}}" href="{{ url('/developers') }}">Developers</a></li>
+                                <li style="padding: 8px;" class="set_hover setmainhover"  ><a class="b_sub_menus"  href="#">Project Area</a></li>
+                                <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('propert_types') ? 'menus_radius' : ''}}"  ><a class="b_sub_menus"  id="{{ Request::is('propert_types') ? 'menus_radius_id' : ''}}" href="{{ url('/propert_types') }}">Property Types</a></li>
+                                <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('contacts') ? 'menus_radius' : ''}}"  ><a class="b_sub_menus" id="{{ Request::is('contacts') ? 'menus_radius_id' : ''}}" href="{{ url('/contacts') }}">Contact Us</a></li>
+                              </ul>
+                      
+                    <div class="close-btn" id="closeBtn" onclick="closeMenu()"></div>
+                  </div>
+                  
+              </div>
+
+
               </div>
             
 
@@ -132,9 +141,11 @@
                   
                 </nav>  --}}
   
-          </div>
+         
       </div>
   
+
+
 </div>
 </div>
 <!-- Header End  -->

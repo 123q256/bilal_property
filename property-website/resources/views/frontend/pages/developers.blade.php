@@ -190,12 +190,12 @@ h1.heading {
             <div class="row">
                 <div class="container" style="width: 95%!important;" >
                     <div class="dorp_property_list" > 
-                        <div style="float: left;margin-bottom:3px"> 
+                        <div style="float: left;margin-bottom:3px;width: 100%;margin-bottom: 10px;"> 
                             <h6 style="padding-top: 10px; ">Filter :</h6>
                         </div>
                          <div class="dropdown grid_drop_down_item1" >
                             <?php $locations_fileters = App\Models\Location::where('status', '0')->get(); ?> 
-                        <select onchange="filterfunctionTwo(this)" style="width:130px;" class="filter_dropdown" name="wgtmsr" id="areafilter" >
+                        <select onchange="filterfunctionTwo(this)"  class="filter_dropdown" name="wgtmsr" id="areafilter" >
                             <option value="" >Location</option>
                             @foreach($locations_fileters as $key => $locations_fileter)
                             <option value="{{ $locations_fileter->id }}">{{ $locations_fileter->location }}</option>
@@ -207,7 +207,7 @@ h1.heading {
                          <div class="dropdown grid_drop_down_item2">
                             <?php $bedroomsfilters = App\Models\Bedroom::where('status', '0')->get();   ?> 
     
-                        <select onchange="filterfunctionTwo(this)" class="filter_dropdown" style="width:130px;" name="wgtmsr" id="bedroomfilter" >
+                        <select onchange="filterfunctionTwo(this)" class="filter_dropdown"  name="wgtmsr" id="bedroomfilter" >
                             <option  value="" >Bedroom</option>
                             @foreach($bedroomsfilters as $key => $bedroomsfilter)
                         

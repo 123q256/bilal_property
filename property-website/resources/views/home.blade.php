@@ -255,7 +255,7 @@
     </div>
 </div>
 
-<div class="thirteen_main_row">
+{{-- <div class="thirteen_main_row">
     <div style="background-color: #F8F8F8;" class="container">
         <div class="row">
             <div class="col-md-8 mx-auto mt-4 mb-4 sec_last_code">
@@ -265,6 +265,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection

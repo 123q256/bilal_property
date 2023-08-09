@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -45,6 +46,78 @@
 
 
 <style>
+
+
+
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+
+
+/* ALL LOADERS */
+
+.loader1122{
+  width: 100px;
+  /* height: 20px; */
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+
+}
+
+/* LOADER 4 */
+
+#loader-4 span{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #3498db;
+  margin: 12px 5px;
+  opacity: 0;
+}
+
+#loader-4 span:nth-child(1){
+  animation: opacitychange 1s ease-in-out infinite;
+}
+
+#loader-4 span:nth-child(2){
+  animation: opacitychange 1s ease-in-out 0.33s infinite;
+}
+
+#loader-4 span:nth-child(3){
+  animation: opacitychange 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes opacitychange{
+  0%, 100%{
+    opacity: 0;
+  }
+
+  60%{
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
     
     .chat_icon{
         position: fixed;
@@ -242,7 +315,8 @@
   } */
 
 /* Media query for mobile view */
-@media (max-width: 970px) {
+
+@media (max-width: 1090px) {
   .menu-list {
     display: none;
   }
@@ -250,9 +324,44 @@
   .mobile-icon {
     display: block;
   }
+  .menu{
+    float:right!important;
+  }
+
+ 
 
 
 
+  .menu-list.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    background-color: #f0f0f0;
+    width: 100%;
+    z-index: 2;
+    padding: 20px;
+  }
+
+
+  .menu-list.open li {
+    /* margin: 10px 0; */
+    padding: 10px;
+  }
+  /* .menu-list{
+    position: relative;
+  } */
+  .menu-list.open li:hover{
+    background-color: #0367A6;
+    border-radius: 10px;
+    color: #ffffff!important;
+  }
+
+}
+@media (max-width: 680px) {
+
+       
   .menu-list.open {
     display: flex;
     flex-direction: column;
@@ -261,34 +370,24 @@
     left: 0;
     background-color: #f0f0f0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     padding: 20px;
   }
-
-  .menu-list.open li {
-    /* margin: 10px 0; */
-    padding: 10px;
-  }
-  .menu-list.open li:hover{
-    background-color: #ffffff;
-  }
-
-}
+    }
 
 #pakistancontainer{
     display: flex;
   align-items: center;
-  /* padding: 20px; */
-  /* background-color: #f0f0f0; */
 
 }
 
 
-
-
-
-
-
+.setmainhover:hover{
+  background-color: #0367A6;
+    border-radius: 10px;
+    padding: 10px;
+    color: #ffffff!important;
+}
 
 
 
@@ -359,10 +458,14 @@ cursor: pointer;
   color: #666666;
   background-color: #f2f2f2;
 }
+.menus_radius{
+  background-color: #0367A6;
+  border-radius: 10px;
 
-
-
-    
+}
+#menus_radius_id{
+  color: #ffffff!important;
+}
         </style>
 <body>
 
@@ -1151,7 +1254,20 @@ $(document).ready(function() {
     // alert(modelId);
     $(".hidden_developer").val(modelId);
     $("#customModalOverlay").fadeIn();
-
+          $('#addData').html(`
+          <tr>
+            <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+            
+                <div class="loader1122" id="loader-4">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+          
+            </th>
+          </tr>
+      
+      `);
     $.ajaxSetup({
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1165,6 +1281,7 @@ $(document).ready(function() {
           processData: false,
           contentType: false,
           success: function(response) {
+            $('#addData').html("");
                 $('#myTable').DataTable().clear().destroy();
                 $("#addData").html(response);
                 new DataTable('#myTable');
@@ -1260,7 +1377,21 @@ $(document).ready(function() {
          dd.append("price",price);
          dd.append("sqfoot",sqfoot);
          dd.append("hidden1",hidden1);
-         
+
+         $('#addData').html(`
+    <tr>
+      <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+       
+          <div class="loader1122" id="loader-4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    
+      </th>
+    </tr>
+ 
+`);
 
         $.ajaxSetup({
         headers: {
@@ -1334,7 +1465,20 @@ $('#resetButton_two').on('click', function() {
   
      var modelId = $('#hidden_developer').val();
     //  alert(modelId);
-   
+    $('#addData').html(`
+    <tr>
+      <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+       
+          <div class="loader1122" id="loader-4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    
+      </th>
+    </tr>
+ 
+`);
     $.ajaxSetup({
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1348,6 +1492,7 @@ $('#resetButton_two').on('click', function() {
           processData: false,
           contentType: false,
           success: function(response) {
+            $('#addData').html("");
                 $('#myTable').DataTable().clear().destroy();
                 $("#addData").html(response);
                 new DataTable('#myTable');
@@ -1413,8 +1558,8 @@ $('#resetButton_two').on('click', function() {
      button.addEventListener('click', openModal);
    });
    
-   </script>
-
+  </script>
+ 
  @yield('script')
 </body>
 </html>

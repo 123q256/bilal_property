@@ -134,7 +134,43 @@ ul{
 }
 
 
+.details_a1122{
+    background-color: #0367A6;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0em;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+ 
+    transition: all 0.5s ease 0s;
+}
 
+
+.details_a1122::after{
+    background: #1b98e0;
+    content: '';
+ 
+    transition: all 0.5s ease 0s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+
+}
+
+.details_a1122:hover{
+    color: #ffffff;
+  background-color: #1b98e0;
+}
+
+.details_a1122:hover::after{
+    height: 100%;
+    opacity: 0.2;
+ 
+}
 
   
 .details_a1{
@@ -1402,8 +1438,13 @@ font-family: 'GTUltra';
         font-family: 'Roboto-Regular'
     }
 
+    .filter_dropdown{
+        margin-bottom: 10px;
+        width: 130px;
+    }
 
     /* Form page END  */
+    
 
     /* contact page START responsive  */
     @media only screen and (max-width: 1070px) {
@@ -1412,6 +1453,8 @@ font-family: 'GTUltra';
            
             font-size: 17px;
         }
+       
+  
         .header_call{
             width: 38%;
         }
@@ -1497,6 +1540,31 @@ font-family: 'GTUltra';
         }
     }
 
+    @media only screen and (max-width: 540px) {
+        .grid_drop_down_item1{
+            width: 100%!important;
+          }
+          .grid_drop_down_item2{
+            width: 100%!important;
+          }
+          .grid_drop_down_item3{
+            width: 100%!important;
+          }
+    
+          .grid_drop_down_item4{
+            width: 100%!important;
+          }
+          .grid_drop_down_item5{
+            width: 100%!important;
+          }
+          .grid_drop_down_item6{
+            width: 100%!important;
+          }
+          .filter_dropdown{
+            width: 100%!important;
+          }
+    }
+
   @media only screen and (max-width: 469px) {
     .set_bcimage{
         width: 100%;
@@ -1504,6 +1572,7 @@ font-family: 'GTUltra';
        
        
       }
+
       .test_contain_two ul li {
         padding-right: 26px;
         font-size: 20px;
@@ -1549,12 +1618,19 @@ font-family: 'GTUltra';
           .b_nextbtns{
             margin-left: 20px!important;
           }
+          .filter_dropdown{
+            width: 100%;
+            margin-bottom: 10px;
+          }
         
     }
       @media only screen and (max-width: 768px) {
         .set_bcimage{
             width: 40%!important;
             background-size: cover;
+          }
+          .one_menu{
+            width: 50%;
           }
     
         .select_bil {
@@ -2198,6 +2274,7 @@ width: 100%!important;
 
 .filter_dropdown{
 width: 238px;
+margin-bottom: 10px;
 }
 
 }
@@ -2265,7 +2342,9 @@ width: 147px;
   
   
       }
-  
+   
+       
+ 
   
     @media only screen and (max-width: 990px){
       .Payment_Plan_1 {
@@ -2409,7 +2488,7 @@ width: 147px;
   margin-left: 27px;
   }
   }
-  
+
 
   /* details page CSS End  */
 

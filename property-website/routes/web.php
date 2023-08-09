@@ -224,6 +224,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/developers','developers');
         Route::get('/developer_detail/{id}','developer_detail');
         Route::post('/model_filter_list/{id}','model_filter_lists');
+        Route::post('/model_filter_list_developer_details/{id}','model_filter_list_developer_details');
         Route::post('/model_filter_optionOne/{id}','model_filter_optionOne');
         Route::post('/model_filter_optiontwo/{id}','model_filter_optiontwo');
 
