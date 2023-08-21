@@ -2,146 +2,10 @@
 
 @section('content')
 <style>
-  
-
-  /* Full-page modal */
-.cl-popup-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-}
-
-/* Modal content */
-.cl-popup-box {
-  border-radius: 5px;
-  max-width: 60%;
-  max-height: 95%;
-  overflow-y: auto;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Modal content visible when opened */
-.cl-popup-box.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Close button */
-.cl-popup-box-closer {
-  position: absolute;
-top: 0px;
-right: 10px;
-font-size: 50px;
-color: #e61212;
-cursor: pointer;
-}
-
-/* Additional styles for the modal title and content */
-.cl-popup-box-title {
-  padding: 10px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.cl-popup-box-content {
-  padding: 20px;
-  font-size: 16px;
-}
-
-
-/* color: #666666;
-  background-color: #f2f2f2;
-} */
-.cl-popup-box-title {
-  font-size: 1.15em;
-  line-height: 1.5;
-  font-weight: bold;
-  padding: 15px 25px;
-  color: #666666;
-  background-color: #f2f2f2;
-}
-
+  #bilal_filter_completion{
+    width: 160px;
+  }
 </style>
-<!-- Your button to open the modal -->
-{{-- <button id="open-modal-btn">Open Modal</button> --}}
-
-<!-- Modal -->
-<div class="cl-popup-wrap" style="display: none;">
-  <div class="cl-popup-box" style="width: 60%;margin-top:1px;">
-    <div class="cl-popup-box-h">
-      <div class="cl-popup-box-title pl-3">
-        REGISTER YOUR INTEREST
-      </div>
-      <div class="cl-popup-box-content">
-        <!-- Your modal body content goes here -->
-        <form method="post" action="#">
-     
-        <div class="form-group mt-2">
-          <label class="mb-2" for="form_name"><strong>Full Name</strong></label>
-          <input type="text" style="background-color: #f2f2f2;" class="form-control" id="form_name" aria-describedby="emailHelp" placeholder="Enter Full Name">
-        </div>
-        <div class="form-group mt-2">
-          <label class="mb-2" for="form_email"><strong>Email</strong></label>
-          <input type="email" style="background-color: #f2f2f2;" class="form-control" id="form_email" aria-describedby="emailHelp" placeholder="Enter Your email">
-        </div>
-        <div class="form-group mt-2">
-  
-          <input type="text" style="background-color: #f2f2f2;" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
-        </div>
-
-        <div class="form-group mt-2 mb-2">
-          <label class="mb-2" for="exampleFormControlSelect1"><strong> Preferred Language</strong></label>
-          <select style="background-color: #f2f2f2;" class="form-control" id="exampleFormControlSelect1">
-                              <option value="">Preferred Language</option>
-                              <option value="English">English</option>
-                              <option value="Arabic">Arabic</option>
-                              <option value="Russian">Russian</option>
-                              <option value="Chinese">Chinese</option>
-                              <option value="Hindi">Hindi</option>
-                              <option value="Urdu">Urdu</option>
-                              <option value="Spanish">Spanish</option>
-                              <option value="Portuguese">Portuguese</option>
-                              <option value="French">French</option>
-                              <option value="Persian">Persian</option>
-          </select>
-        </div>
-
-        <div class="form-group mt-2 ">
-          <label class="mb-2" for="exampleFormControlTextarea1"> <strong>Message</strong></label>
-          <textarea style="background-color: #f2f2f2;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-        <div class="form-group mt-2">
-          <button type="button" class="btn btn-primary w-100">Register Your Interest</button>
-        </div>
-
-       
-
-      </form>
-           
-
-      </div>
-    </div>
-    <div class="cl-popup-box-closer">&times;</div>
-  </div>
-</div>
-
-{{-- Form Model Popup Start  --}}
-
-<!-- Property Type Start  -->
-
-
 
  <!-- OFF PLANE Projects in Dubai -->
 
@@ -175,7 +39,7 @@ cursor: pointer;
               <div class="col-md-4">
                 <div class="card">
                   <?php $listing_image = App\Models\ListingPropertyImage::where('list_property_id', $listingProperty->id)->first();?>  
-                  <a href="{{ url('/propert_details'.'/'.$listingProperty->id) }}"><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image->list_pro_image) }}" width="100%" alt="Palm Springs Road"/></a>
+                  <a href="{{ url('/propert_types/propert_details'.'/'.$listingProperty->id) }}"><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image->list_pro_image) }}" width="100%" alt="Palm Springs Road"/></a>
                   <div class="card-body">
                     <?php 
                     // dd($listing_image->list_pro_image);
@@ -202,7 +66,7 @@ cursor: pointer;
                       <p class="card-text"> Types: <span>{{ $typeofpropertys->property_type }} |  Bed Room : {{ $bedrooms->number_of_bed }}</span></p>
                         <div class="container">
                           <div class="row">
-                              <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_details'.'/'.$listingProperty->id) }}" style="line-height: 1.8" class="btn btn-primary col-12 details_a1">DETAILS</a>
+                              <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_types/propert_details'.'/'.$listingProperty->id) }}" style="line-height: 1.8" class="btn btn-primary col-12 details_a1">DETAILS</a>
                               </div>
                               <div class="col-xl-6 col-lg-12 mt-2" class="btn btn-primary"><button value="{{ $listingProperty->id }}"   class="btn btn-primary col-12 details_a2 open-modal-btn">REGISTER NOW</button>
                               </div>
@@ -242,77 +106,66 @@ cursor: pointer;
                     <h6 style="padding-top: 10px; ">Filter :</h6>
                 </div>
       
-     
+                <?php $typeofpropertys_filters = App\Models\TypeOfProperty::where('status','0')->get(); ?> 
             <div class="dropdown grid_drop_down_item1" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Property type</option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select onchange="bilalfilterfunction(this)" class="filter_dropdown"  id="bilal_filter_property" >
+                <option  value="" >Property type</option>
+                @foreach($typeofpropertys_filters as $key => $typeofpropertys_filter)
+                <option value="{{ $typeofpropertys_filter->id }}">{{ $typeofpropertys_filter->property_type }}</option>
+                @endforeach
               </select>
             </div>
            
            
-            
+            <?php $bedroomsfilters = App\Models\Bedroom::where('status', '0')->get();   ?> 
             <div class="dropdown grid_drop_down_item2" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Bed</option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select onchange="bilalfilterfunction(this)" class="filter_dropdown"  id="bilal_filter_bedroom" >
+                <option  value="" >Bedroom</option>
+                @foreach($bedroomsfilters as $key => $bedroomsfilter)
+                <option value="{{ $bedroomsfilter->id }}">{{ $bedroomsfilter->number_of_bed }}</option>
+                @endforeach
               </select>
             </div>
+            <?php $Developer_filters = App\Models\Developer::where('status','0')->get(); ?> 
       
             <div class="dropdown grid_drop_down_item3" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Developer</option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select  onchange="bilalfilterfunction(this)" class="filter_dropdown"  id="bilal_filter_developer" >
+                <option value="" >Developer</option>
+                @foreach($Developer_filters as $key => $Developer_filter)
+                <option value="{{ $Developer_filter->id }}">{{ $Developer_filter->developer_name }}</option>
+                @endforeach
               </select>
             </div>
-     
+            <?php $Location_filters = App\Models\Location::where('status','0')->get(); ?> 
             <div class="dropdown grid_drop_down_item4" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Location</option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select  onchange="bilalfilterfunction(this)" class="filter_dropdown" n id="bilal_filter_location" >
+                <option value="" >Location</option>
+                @foreach($Location_filters as $key => $Location_filter)
+                <option value="{{ $Location_filter->id }}">{{ $Location_filter->location }}</option>
+                @endforeach
               </select>
             </div>
-     
+            <?php $PaymentPlan_filters = App\Models\PaymentPlan::where('status','0')->get(); ?> 
             <div class="dropdown grid_drop_down_item5" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Payment Plan</option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select  onchange="bilalfilterfunction(this)" class="filter_dropdown"  id="bilal_filter_paymentplan" >
+                <option value="" >Payment Plan</option>
+                @foreach($PaymentPlan_filters as $key => $PaymentPlan_filter)
+                <option value="{{ $PaymentPlan_filter->id }}">{{ $PaymentPlan_filter->payment_plane_years }}</option>
+                @endforeach
               </select>
             </div>
      
-       
+            <?php $CompletionDate_filters = App\Models\CompletionDate::where('status','0')->get(); ?> 
             <div class="dropdown grid_drop_down_item6" >
-              <select class="filter_dropdown" name="wgtmsr" id="wgtmsr" >
-                <option  >Completion </option>
-                <option value="gm">Gm</option>
-                <option value="pound">Pound</option>
-                <option value="MetricTon">Metric ton</option>
-                <option value="litre">Litre</option>
-                <option value="ounce">Ounce</option>
+              <select  onchange="bilalfilterfunction(this)" class="filter_dropdown"  id="bilal_filter_completion" >
+                <option value="">Completion Date</option>
+                  @foreach($CompletionDate_filters as $key => $CompletionDate_filter)
+                  <option value="{{ $CompletionDate_filter->id }}">{{ $CompletionDate_filter->completions }}</option>
+                  @endforeach
               </select>
             </div>
      
-            <div class="dropdown grid_drop_down_item6" >
+            {{-- <div class="dropdown grid_drop_down_item6" >
               <h6 class="allpr_heading">Show  </h6>
               <select  name="wgtmsr" id="wgtmsr" style="width: 96px;background-color: #F7F7F7;color: #5C5C5C;padding-top:9px;padding-bottom: 9px;padding-left:10px;border: none;">
                 <option  >all </option>
@@ -322,20 +175,20 @@ cursor: pointer;
                 <option value="litre">Litre</option>
                 <option value="ounce">Ounce</option>
               </select>
-            </div>
+            </div> --}}
      
        
       
       
 
             <div class="Reset_pro_detals">
-                <a href=""  class="achor_prop_tetails">
+                <a type="button" id="resetButtonbilal" class="achor_prop_tetails">
                     <i class="fa fa-refresh" aria-hidden="true"></i>   Reset
                  </a>
             </div>
-            <div class="Search_pro_detals">
+            {{-- <div class="Search_pro_detals">
                 <button class="btn Search_pro_detals_btn" >Search</button>
-            </div> 
+            </div>  --}}
     </div>
     </div> 
     
@@ -346,8 +199,9 @@ cursor: pointer;
     ?>
 
 <div class="container" style="width: 95%!important;">
-  <div class="row row-cols-1 row-cols-md-2 g-4 products_flex" style="display: none; overflow-x: auto;">
- <table class="table" width="100%" >
+  <div class="row row-cols-1 products_flex" style="display: none; overflow-x: auto;">
+ <table class="table" id="myTable" width="100%" >
+            <thead>
             <tr >
                 <th>property image</th>
                 <th>Title</th>
@@ -357,13 +211,14 @@ cursor: pointer;
                 <th>Property Types</th>
                 <th>Completion</th>
             </tr>
-         
+          </thead>
 
+            <tbody id="bilal_addData">
 
 
 
             <?php $listingPropertys11 = App\Models\ListingProperty::where('status', '0')->get();?>  
-            @forelse ($listingPropertys11 as $listingProperty11)
+            @foreach($listingPropertys11 as $listingProperty11)
             <?php $listing_image11 = App\Models\ListingPropertyImage::where('list_property_id', $listingProperty11->id)->first();?>  
           <tr>
             <td><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image11->list_pro_image) }}" width="40px"></td>
@@ -372,28 +227,21 @@ cursor: pointer;
             <?php $bedrooms11 = App\Models\Bedroom::where('id', $listingProperty11->number_of_bedrooms)->first();?> 
             <?php $developers11 = App\Models\Developer::where('id', $listingProperty11->about_the_developer)->first();?> 
             <?php $locations11 = App\Models\Location::where('id', $listingProperty11->location)->first();?> 
+            <?php $lcompletion11 = App\Models\CompletionDate::where('id', $listingProperty11->handover)->first();?> 
 
             <td>{{  $listingProperty11->title_name }}</td>
             <td> {{ $developers11->developer_name }}</td>
             <td>{{ $locations11->location }}</td>
             <td>{{ $bedrooms11->number_of_bed }}</td>
             <td>{{ $typeofpropertys11->property_type }}</td>
-            <td>2026</td>
+            <td>{{ $lcompletion11->completions }}</td>
+         
         </tr>
 
-
-            @empty
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12 text-center text-danger mt-5">
-                    <h1>No Listing Property Found </h1>
-                  </div>
-                </div>
-               
-              </div>
-            @endforelse
+            
+            @endforeach
     
-       
+            </tbody>
         
  </table>    
   </div>
@@ -404,51 +252,187 @@ cursor: pointer;
 
 @section('script')
 <script>
- // Open the modal with zoom effect
-function openModal() {
-  const modal = document.querySelector('.cl-popup-wrap');
-  modal.style.display = 'flex';
-  setTimeout(() => {
-    modal.querySelector('.cl-popup-box').classList.add('active');
-  }, 100);
-}
 
-// Close the modal with zoom effect
-function closeModal() {
-  const modal = document.querySelector('.cl-popup-wrap');
-  modal.querySelector('.cl-popup-box').classList.remove('active');
-  setTimeout(() => {
-    modal.style.display = 'none';
-  }, 300);
-}
 
-// Close the modal when clicking outside the modal
-function handleClickOutside(event) {
-  const modal = document.querySelector('.cl-popup-box');
-  if (event.target !== modal && !modal.contains(event.target)) {
-    closeModal();
+
+  function bilalfilterfunction(element) {
+     //alert('hello');
+    var property = $('#bilal_filter_property').val();
+    var bedroomone = $('#bilal_filter_bedroom').val();
+    var developer = $('#bilal_filter_developer').val();
+    var location = $('#bilal_filter_location').val();
+    var payments = $('#bilal_filter_paymentplan').val();
+    var sqfoocompletion = $('#bilal_filter_completion').val();
+
+       // alert(element.value); 
+ var dd = new FormData();
+         dd.append("property",property);
+         dd.append("bedroomone",bedroomone);
+         dd.append("developer",developer);
+         dd.append("location",location);
+         dd.append("payments",payments);
+         dd.append("sqfoocompletion",sqfoocompletion);
+     
+
+         $('#bilal_addData').html(`
+    <tr>
+      <th colspan="7">
+       
+          <div class="loader1122" id="loader-4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    
+      </th>
+    </tr>
+ 
+`);
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        $.ajax({
+            async: true,
+            type: 'post',
+            url: "{{ url('/bilal_filter_list')}}",
+            data: dd,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+
+                $('#bilal_addData').html("");
+
+
+              var table = $('#bilal_addData');
+              
+                if (response.status == 200) {
+    
+                  if(response.record != ""){
+
+
+                    $.each(response.record, function(index, record) {
+    var newRow = '<tr>' +
+        '<td><img src="{{ asset("admin_images/Listing_property_images") }}'+"/" + record.photo + '" width="40px"></td>' +
+        '<td>' + record.title_name + '</td>' +
+        '<td>' + record.developer_name + '</td>' +
+        '<td>' + record.location + '</td>' +
+        '<td>' + record.number_of_bed + '</td>' +
+        '<td>' + record.property_type + '</td>' +
+        '<td>' + record.completions + '</td>' +
+        '</tr>';
+
+    // Append the new row to the table
+   
+    table.append(newRow);
+
+});       
+                }else{
+                $('#bilal_addData').html("");
+                $('#bilal_addData').append(' <tr><td colspan="7">Not Found Results</td></tr>');
+              
+            }
+         
+                }
+
+
+
+
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+    </script>
+ <script>
+  $(document).ready(function() {
+// When the button is clicked, reset the select value
+$('#resetButtonbilal').on('click', function() {
+// Set the selected value to an empty string
+$('#bilal_filter_property').val('');
+$('#bilal_filter_bedroom').val('');
+$('#bilal_filter_developer').val('');
+$('#bilal_filter_location').val('');
+$('#bilal_filter_paymentplan').val('');
+$('#bilal_filter_completion').val('');
+
+$('#addData').html(`
+<tr>
+  <th colspan="9"> <!-- Adjust colspan based on your table structure -->
+   
+      <div class="loader1122" id="loader-4">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+  </th>
+</tr>
+
+`);
+$.ajaxSetup({
+  headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
-}
+  });
+  $.ajax({
+      async: true,
+      type: 'post',
+      url: "{{ url('/filter_resetbtn_bilal')}}",
+      cache: false,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+          $('#bilal_addData').html("");
 
-// Close the modal when pressing the Escape key
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    closeModal();
-  }
+
+              var table = $('#bilal_addData');
+              
+                if (response.status == 200) {
+    
+                  if(response.record != ""){
+
+
+                    $.each(response.record, function(index, record) {
+    var newRow = '<tr>' +
+        '<td><img src="{{ asset("admin_images/Listing_property_images") }}'+"/" + record.photo + '" width="40px"></td>' +
+        '<td>' + record.title_name + '</td>' +
+        '<td>' + record.developer_name + '</td>' +
+        '<td>' + record.location + '</td>' +
+        '<td>' + record.number_of_bed + '</td>' +
+        '<td>' + record.property_type + '</td>' +
+        '<td>' + record.completions + '</td>' +
+        '</tr>';
+
+    // Append the new row to the table
+   
+    table.append(newRow);
+
+});       
+                }else{
+                $('#bilal_addData').html("");
+                $('#bilal_addData').append(' <tr><td colspan="7">Not Found Results</td></tr>');
+              
+            }
+         
+                }
+
+
+      }
+  });
+
+
 });
-
-// Attach the event listener to the close button
-document.querySelector('.cl-popup-box-closer').addEventListener('click', closeModal);
-
-// Attach the event listener to the modal wrap to close when clicking outside
-document.querySelector('.cl-popup-wrap').addEventListener('click', handleClickOutside);
-
-// Open the modal on click of the button with the 'open-modal-btn' class
-const openModalButtons = document.querySelectorAll('.open-modal-btn');
-openModalButtons.forEach((button) => {
-  button.addEventListener('click', openModal);
 });
-
 </script>
 
 

@@ -89,9 +89,15 @@
          
                               <ul class="menu-list" id="menuList">
                                 <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('/') ? 'menus_radius' : ''}}" ><a style="padding-bottom: 8px;" id="{{ Request::is('/') ? 'menus_radius_id' : ''}}" class="b_sub_menus" href="{{ url('/') }}">Home</a></li>
-                                <li style="padding: 8px;" class="set_hover  setmainhover {{ Request::is('developers') ? 'menus_radius' : ''}} "  ><a class="b_sub_menus" id="{{ Request::is('developers') ? 'menus_radius_id' : ''}}" href="{{ url('/developers') }}">Developers</a></li>
+                                <li style="padding: 8px;" class="set_hover  setmainhover {{ Request::is('developer*') ? 'menus_radius' : ''}} "  ><a class="b_sub_menus" id="{{ Request::is('developer*') ? 'menus_radius_id' : ''}}" href="{{ url('/developers') }}">Developers</a></li>
                                 <li style="padding: 8px;" class="set_hover setmainhover"  ><a class="b_sub_menus"  href="#">Project Area</a></li>
-                                <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('propert_types') ? 'menus_radius' : ''}}"  ><a class="b_sub_menus"  id="{{ Request::is('propert_types') ? 'menus_radius_id' : ''}}" href="{{ url('/propert_types') }}">Property Types</a></li>
+
+
+
+                                <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('propert_types*') ? 'menus_radius' : ''}}"  ><a class="b_sub_menus"  id="{{ Request::is('propert_types*') ? 'menus_radius_id' : ''}}" href="{{ url('/propert_types') }}">Property Types</a></li>
+
+
+
                                 <li style="padding: 8px;" class="set_hover setmainhover {{ Request::is('contacts') ? 'menus_radius' : ''}}"  ><a class="b_sub_menus" id="{{ Request::is('contacts') ? 'menus_radius_id' : ''}}" href="{{ url('/contacts') }}">Contact Us</a></li>
                               </ul>
                       

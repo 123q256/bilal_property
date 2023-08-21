@@ -121,7 +121,12 @@
               <div class="col">
                 <div class="mb-3">
                   <label> <strong>Add Currency</strong></label>
-                  <input class="form-control" name="currency" type="text" placeholder="Add Currency *">
+                  <input class="form-control @error('currency') is-invalid @enderror" name="currency" type="text" placeholder="Add Currency *">
+                  @error('currency')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -135,7 +140,7 @@
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"    name="status">
+                          <input type="checkbox" {{ old('status') ? 'checked' : '' }}   class="check_get_id"    name="status">
                           <span class="slider round"></span>
                         </label>
                     </div>

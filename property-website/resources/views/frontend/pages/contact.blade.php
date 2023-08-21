@@ -38,21 +38,41 @@
                         <form action="{{ route('contact.submit') }}" method="POST">
                             @csrf
                                 <label class="b_label_form">Name <span class="b_lave_span" > *</span></label>
-                                <input type="text" name="name" placeholder="Enter Your Name" class="form-control b_input_class" id="">
-            
+                                <input type="text" name="name" placeholder="Enter Your Name"  value="{{ old('name') }}" class="form-control b_input_class @error('name') is-invalid @enderror" id="">
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                                 <label class="b_label_form">Contact Number<span  class="b_lave_span" > *</span></label>
-                                <input type="text" name="contact_number" placeholder="Enter Phone Number" class="form-control b_input_class" id="">
-            
+                                <input type="text" name="contact_number" placeholder="Enter Phone Number"  value="{{ old('contact_number') }}" class="form-control b_input_class @error('contact_number') is-invalid @enderror" id="">
+                                @error('contact_number')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                                 <label class="b_label_form">E-mail Address <span class="b_lave_span"> *</span></label>
-                                <input type="text" name="email" placeholder="Enter E-mail Address" class="form-control b_input_class" id="">
-            
+                                <input type="text" name="email" placeholder="Enter E-mail Address"  value="{{ old('email') }}" class="form-control b_input_class @error('email') is-invalid @enderror" id="">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                                 <label class="b_label_form">Nationality <span class="b_lave_span" > *</span></label>
-                                <input  type="text" name="nationality" placeholder="Enter Nationality" class="form-control b_input_class" id="">
-    
+                                <input  type="text" name="nationality" placeholder="Enter Nationality"  value="{{ old('nationality') }}" class="form-control b_input_class @error('nationality') is-invalid @enderror" id="">
+                                @error('nationality')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                                 <label class="b_label_form">Massege <span class="b_lave_span" > *</span></label>
                              
-                                <textarea name="messages" class="form-control b_input_class" placeholder="Enter Massege"  rows="4" cols="50"></textarea>
-
+                                <textarea name="messages" class="form-control b_input_class @error('messages') is-invalid @enderror" placeholder="Enter Massege"  rows="4" cols="50">{{ old('messages') }}</textarea>
+                                @error('messages')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             
                                <div class="col-md-12 text-center mt-3">
                                 <input class="btn btn-primary b_form_btn" type="submit" value="Submit">

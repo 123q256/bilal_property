@@ -185,4 +185,62 @@ class DeveloperFilterController extends Controller
         return view('frontend.search.searchloactions' , compact('ListingProperty','locatisearch'));
     }
 
+    public function bilal_filter_lists(Request $request){
+       // dd($request->all());
+
+        $items = ListingProperty::
+        leftJoin("completion_dates","completion_dates.id","listing_properties.handover")
+        ->leftJoin("type_of_properties","type_of_properties.id","listing_properties.type_of_property")
+        ->leftJoin("bedrooms","bedrooms.id","listing_properties.number_of_bedrooms")
+        ->leftJoin("payment_plans","payment_plans.id","listing_properties.payment_plane")
+        ->leftJoin("locations","locations.id","listing_properties.location")
+        ->leftJoin("developers","developers.id","listing_properties.about_the_developer")
+        ->select('listing_properties.*', 'type_of_properties.property_type', 'bedrooms.number_of_bed', 'payment_plans.payment_plane_years', 'locations.location', 'developers.developer_name', 'completion_dates.completions',
+        DB::raw('(select list_pro_image from listing_property_images where list_property_id  =   listing_properties.id order by id asc limit 1) as photo')  
+        );
+        //dd($items);
+
+        if (!empty($request->property)) {
+          
+           // dd('hhh');
+            $items->where('type_of_properties.id', $request->property);
+        }
+        if (!empty($request->bedroomone)) {
+          
+
+            $items->where('bedrooms.id', $request->bedroomone);
+        }
+        if (!empty($request->developer)) {
+          
+
+            $items->where('developers.id', $request->developer);
+        }
+        if (!empty($request->location)) {
+          
+
+            $items->where('locations.id', $request->location);
+        }
+        if (!empty($request->payments)) {
+          
+
+            $items->where('payment_plans.id', $request->payments);
+        }
+        if (!empty($request->sqfoocompletion)) {
+          
+
+            $items->where('completion_dates.id', $request->sqfoocompletion);
+        }
+
+
+        $item= $items->get();
+         
+        // dd($item);
+    
+
+        return response()->json([
+            'status' => 200,
+            'record' => $item
+        ]);
+    }
+
 }

@@ -227,7 +227,7 @@
                                            
                                             <br>
                                             <button type="submit" id="show_btn" class="btn btn-primary twoForm btn-lg pull-right hello_btn">Submit</button>
-                                            <button type="submit" id="show_btn" style="display: none;" class="btn btn-primary  btn-lg pull-right buttonload"><i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;processing...</button>
+                                        
 
                                             {{-- <button type="button" id="myButton1" class="btn btn-primary btn-lg pull-right">Next111</button> --}}
                                             <br>
@@ -597,8 +597,8 @@ var user_property_all = document.getElementById("user_property_all");
         event.preventDefault();
         var formElem = $("#"+id);
 
-        $('.buttonload').show();
-          $('.hello_btn').hide();
+      
+      
           $('#spinnerOverlay').show();
     
         var formData = new FormData(formElem[0]);
@@ -618,8 +618,8 @@ var user_property_all = document.getElementById("user_property_all");
             contentType: false,
             success: function(response) {
                 if (response.status == 200) {
-                    $('.hello_btn').show();
-                     $('.buttonload').hide();
+                  
+                   
                      $('#spinnerOverlay').hide();
                
                      Swal.fire({
@@ -643,8 +643,8 @@ var user_property_all = document.getElementById("user_property_all");
 								});
                 }
                 if (response.status == 400) {
-                    $('.hello_btn').show();
-                     $('.buttonload').hide();
+                   
+                  
                      $('#spinnerOverlay').hide();
                     //  alert(response.message);
                     Swal.fire(

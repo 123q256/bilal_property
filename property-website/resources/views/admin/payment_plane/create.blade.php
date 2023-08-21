@@ -179,7 +179,12 @@ span{
               <div class="col">
                 <div class="mb-3">
                   <label> <strong>Payment Plane years</strong></label>
-                  <input class="form-control"  name="payment_plane_years" type="text" placeholder="Add Payment Plan *">
+                  <input class="form-control @error('payment_plane_years') is-invalid @enderror"  name="payment_plane_years" type="text" placeholder="Add Payment Plan *">
+                  @error('payment_plane_years')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -193,7 +198,7 @@ span{
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"       name="status">
+                          <input type="checkbox"   class="check_get_id"  {{ old('status') ? 'checked' : '' }}      name="status">
                           <span class="slider round"></span>
                       </label>
                     </div>

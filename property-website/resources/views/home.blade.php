@@ -124,7 +124,7 @@
             @csrf
         <div class="row d-flex justify-content-center align-items-center">
             {{-- <div class="col-md-1 yara_block"></div> --}}
-            <div class="col-md-10 nest_back_color d-flex justify-content-center align-items-center" style="margin-top: 30px;background-color: #131B27;
+            <div class="col-md-10 nest_back_color justify-content-center align-items-center" style="margin-top: 30px;background-color: #131B27;
             color: white;
             padding: 10px;">
                 
@@ -132,7 +132,7 @@
 
                 <div style="float: left;"  class="budget"><h1>Type of Property</h1>
                     <select class="select_bil" name="typeofproperty" id="cars">
-                        <option disabled selected value="">Choice property type </option>
+                        <option  value="">Choice property type </option>
                         @forelse ($TypeOfPropertys as $TypeOfProperty)
                             <option value="{{ $TypeOfProperty->id }}">{{ $TypeOfProperty->property_type }}</option>
                             @empty
@@ -144,7 +144,7 @@
 
                 <div style="float: left;" class="budget"><h1>Budget</h1>
                     <select class="select_bil" name="paymentplan" id="cars">
-                        <option disabled selected value="">Choice price Range</option>
+                        <option value="">Choice price Range</option>
                         @forelse ($PaymentPlans as $item)
                         <option value="{{ $item->id }}">{{ $item->payment_plane_years }}</option>
                         @empty
@@ -158,7 +158,7 @@
                 ?> 
                 <div style="float: left;" class="budget"><h1>No of Bed-Room</h1>
                     <select class="select_bil" name="bedroom" id="cars">
-                        <option disabled selected value="">Choice location</option>
+                        <option value="">Choice Bed-Room</option>
                         @forelse ($Bedrooms as $Bedroom)
                         <option value="{{ $Bedroom->id }}">{{ $Bedroom->number_of_bed }}</option>
                         @empty
@@ -169,7 +169,7 @@
                 <?php $Locations = App\Models\Location::where('status', '0')->get();?>  
                 <div style="float: left;" class="budget"><h1>Land</h1>
                     <select class="select_bil" name="location" id="cars">
-                        <option disabled selected value="">Choice location</option>
+                        <option  value="">Choice location</option>
                         @forelse ($Locations as $Location)
                               <option value="{{ $Location->id }}">{{ $Location->location }}</option>
                               @empty
@@ -207,7 +207,7 @@
            
             <div class="col-md-4  b_three_imges_one">
                 <?php $listing_image = App\Models\ListingPropertyImage::where('list_property_id', $listingProperty->id)->first();?>  
-                <a href="{{ url('/propert_details'.'/'.$listingProperty->id) }}"><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image->list_pro_image) }}" width="100%" alt=""></a><h1 >{{  $listingProperty->title_name }}</h1>
+                <a href="{{ url('/propert_types/propert_details'.'/'.$listingProperty->id) }}"><img src="{{ asset('/admin_images/Listing_property_images/'.$listing_image->list_pro_image) }}" width="100%" alt=""></a><h1 >{{  $listingProperty->title_name }}</h1>
                 <div>
                     <?php $developers = App\Models\Developer::where('id', $listingProperty->about_the_developer)->first();?> 
                     <?php $locations = App\Models\Location::where('id', $listingProperty->location)->first();?> 

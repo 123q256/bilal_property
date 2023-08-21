@@ -177,13 +177,23 @@ span{
               <div class="col-md-6">
                 <div class="mb-3">
                   <label><strong>Developer Name</strong></label>
-                  <input class="form-control" name="developer_name" type="text" placeholder="Developer Name *">
+                  <input class="form-control @error('developer_name') is-invalid @enderror" name="developer_name" value="{{ old('developer_name') }}"  type="text" placeholder="Developer Name *">
+                     @error('developer_name')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label><strong>Email</strong> </label>
-                  <input class="form-control" name="email" type="email" placeholder="Email *">
+                  <input class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  type="email" placeholder="Email *">
+                     @error('email')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
 
@@ -192,7 +202,12 @@ span{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Password</strong></label>
-                  <input class="form-control"  id="password-field" name="password" type="password" placeholder="Enter Password ">
+                  <input class="form-control @error('password') is-invalid @enderror"  id="password-field" value="{{ old('password') }}" name="password" type="password" placeholder="Enter Password ">
+                       @error('password')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                   <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   <span class="icon is-small is-left">
                  
@@ -205,7 +220,12 @@ span{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Logo/Image</strong></label>
-                  <input class="form-control"  id="imageInputcreate" name="developer_logo" type="file" >
+                  <input class="form-control @error('developer_logo') is-invalid @enderror"  id="imageInputcreate" name="developer_logo" type="file" >
+                      @error('developer_logo')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                   <div class="imgesize" id="imagePreviews">
                 </div>
 
@@ -218,7 +238,12 @@ span{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Description</strong></label>
-                  <textarea class="form-control" name="description" id="exampleFormControlTextarea4"  placeholder="Description" rows="3"></textarea>
+                  <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="exampleFormControlTextarea4"  placeholder="Description" rows="3">{{ old('description') }}</textarea>
+                     @error('description')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -232,7 +257,8 @@ span{
                   </div>
               <!-- Default switch -->
                   <label class="switch">
-                    <input type="checkbox"   class="check_get_id"    name="status">
+                    <input type="checkbox"   class="check_get_id" {{ old('status') ? 'checked' : '' }}   name="status">
+               
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -247,29 +273,39 @@ span{
               <div class="col-sm-4">
                 <div class="mb-3">
                   <label><strong>Types of property</strong></label>
-                  <select class="form-select" name="type_property" style="max-width: 100%;">
+                  <select class="form-select @error('type_property') is-invalid @enderror" name="type_property" style="max-width: 100%;">
                     <option selected disabled default >Select Types of property</option>
         
                     @forelse ($TypeOfPropertys as $TypeOfProperty)
-                    <option value="{{ $TypeOfProperty->id }}">{{ $TypeOfProperty->property_type }}</option>
+                    <option value="{{ $TypeOfProperty->id }}" {{ old('type_property') == $TypeOfProperty->id ? 'selected' : '' }}>{{ $TypeOfProperty->property_type }}</option>
                     @empty
                     <option value="option2">No Found Property</option>
                     @endforelse
                   </select>
+                     @error('type_property')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
               <?php $Locations = App\Models\Location::where('status', '0')->get();?>  
               <div class="col-sm-4">
                 <div class="mb-3">
                   <label><strong>Location</strong></label>
-                  <select name="location" class="form-select">
+                  <select name="location" class="form-select @error('location') is-invalid @enderror">
                     <option selected disabled default >Select location </option>
                     @forelse ($Locations as $Location)
-                    <option value="{{ $Location->id }}">{{ $Location->location }}</option>
+                    <option value="{{ $Location->id }}" {{ old('location') == $Location->id ? 'selected' : '' }} >{{ $Location->location }}</option>
                     @empty
                     <option value="option2">No Found Payment</option>
                     @endforelse
                   </select>
+                     @error('user_role')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>

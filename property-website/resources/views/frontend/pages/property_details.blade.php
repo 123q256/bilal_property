@@ -97,8 +97,11 @@
                             <label for="text" class="form-label" style="text-align: left;color: white;" >1+1=?</label>
                             <input type="text" class="form-control" id="text" placeholder="">
                           </div> --}}
-                          <div class="g-recaptcha" data-sitekey="6Lff74knAAAAAIOleVZHS35Ltf9MObDyVYvGvj0S"></div>
-                          <span id="show_recaptcha" style="color: red;display:none;" >Recaptcha Is Required </span>
+                          <div style="overflow: hidden;display: flex; align-items: center; justify-content: center; " class="mb-2">
+                            <div class="g-recaptcha" data-sitekey="6Lff74knAAAAAIOleVZHS35Ltf9MObDyVYvGvj0S"></div>
+                            <span id="show_recaptcha" style="color: red;display:none;" >Recaptcha Is Required </span>
+                            
+                          </div>
                           
                     
                           <div class="text-center" style="margin-top: 10px;">
@@ -320,8 +323,10 @@
         
                 <div class="col-lg-12  col-md-12 Payment_Plan_div_col_1">
                         <div class="row"> 
+        <?php $CompletionDate = App\Models\CompletionDate::where('id',$listing_details->handover )->where('status', '0')->first();?>  
+
                             <div class="col-12 text-center" >
-                                <p  class="Payment_Plan_div_para3">Handover:  {{ $listing_details->handover }} </p>
+                                <p  class="Payment_Plan_div_para3">Handover:  {{ $CompletionDate->completions }} </p>
                                     <hr class="line">
         <?php $addcurrencys = App\Models\Addcurrency::where('id',$listing_details->currencys )->where('status', '0')->first();?>  
 

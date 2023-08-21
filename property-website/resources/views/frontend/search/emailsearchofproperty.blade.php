@@ -32,7 +32,7 @@
 
              <div class="col-md-4">
                 <div class="card">
-                   <a href="{{ url('/propert_details'.'/'.$Listing->id) }}"> <img src="{{ asset('/admin_images/Listing_property_images/'.$Listing->photo) }}" style="width: 100%" alt="Palm Springs Road"/></a>
+                   <a href="{{ url('/propert_types/propert_details'.'/'.$Listing->id) }}"> <img src="{{ asset('/admin_images/Listing_property_images/'.$Listing->photo) }}" style="width: 100%" alt="Palm Springs Road"/></a>
                   <div class="card-body">
                     <h5 class="card-title pb-3 property_list">{{ $Listing->title_name }}</h5>
                     <div class="container pb-2">
@@ -54,7 +54,7 @@
                       <p class="card-text"> Types: <span>{{ $typeofpropertys->property_type }} |  Bed {{ $bedrooms_details->number_of_bed }}</span></p>
                         <div class="container">
                           <div class="row">
-                              <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_details'.'/'.$Listing->id) }}" style="line-height: 1.8!important;"  class="btn btn-primary col-12 details_a1">DETAILS</a>
+                              <div class="col-xl-6 col-lg-12 mt-2"  ><a href="{{ url('/propert_types/propert_details'.'/'.$Listing->id) }}" style="line-height: 1.8!important;"  class="btn btn-primary col-12 details_a1">DETAILS</a>
                               </div>
                               <div class="col-xl-6 col-lg-12 mt-2" class="btn btn-primary"><button value="{{ $Listing->id }}" class="btn btn-primary col-12 details_a2 open-modal-btn">REGISTER NOW</button>
                               </div>

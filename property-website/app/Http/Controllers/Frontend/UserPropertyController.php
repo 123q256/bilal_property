@@ -109,7 +109,7 @@ class UserPropertyController extends Controller
 
 
     public function store_two(Request $request){
-        // dd($request->all());
+      // dd($request->all());
        
 
             $UserPropertys = new UserProperty;

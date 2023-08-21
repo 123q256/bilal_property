@@ -124,7 +124,12 @@
               <div class="col">
                 <div class="mb-3">
                   <label> <strong>location</strong></label>
-                  <input class="form-control"  name="location" type="text" placeholder="Add Location*">
+                  <input class="form-control @error('location') is-invalid @enderror"  name="location" type="text" placeholder="Add Location*">
+                  @error('location')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -138,7 +143,7 @@
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"       name="status">
+                          <input type="checkbox"   class="check_get_id"   {{ old('status') ? 'checked' : '' }}     name="status">
                           <span class="slider round"></span>
                       </label>
                     </div>

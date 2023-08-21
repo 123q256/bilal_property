@@ -220,13 +220,14 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/form_two','formtwo');
         Route::get('/contacts','contact');
         Route::get('/propert_types','propert_type');
-        Route::get('/propert_details/{id}','propert_detail');
+        Route::get('/propert_types/propert_details/{id}','propert_detail');
         Route::get('/developers','developers');
-        Route::get('/developer_detail/{id}','developer_detail');
+        Route::get('/developer/details/{id}','developer_detail');
         Route::post('/model_filter_list/{id}','model_filter_lists');
         Route::post('/model_filter_list_developer_details/{id}','model_filter_list_developer_details');
         Route::post('/model_filter_optionOne/{id}','model_filter_optionOne');
         Route::post('/model_filter_optiontwo/{id}','model_filter_optiontwo');
+        Route::post('/filter_resetbtn_bilal','filter_resetbtn_bilal');
 
     });
     
@@ -242,6 +243,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::post('/filter_list','filter_list');
         Route::post('/filter_list_empty','filter_list_empty');
         Route::post('/filter_list_two','filter_list_two');
+        Route::post('/bilal_filter_list','bilal_filter_lists');
         Route::get('/check_loaction/{id}','check_loaction');
 
     });

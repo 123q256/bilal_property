@@ -127,7 +127,12 @@
               <div class="col">
                 <div class="mb-3">
                   <label><strong> Add Bed Room Number</strong></label>
-                  <input class="form-control" name="bed_room_number" type="text" placeholder="Add Bed Room Number *">
+                  <input class="form-control  @error('bed_room_number') is-invalid @enderror" name="bed_room_number" type="text" placeholder="Add Bed Room Number *">
+                  @error('bed_room_number')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -141,7 +146,7 @@
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"    name="status">
+                          <input type="checkbox"  {{ old('status') ? 'checked' : '' }}   class="check_get_id"    name="status">
                           <span class="slider round"></span>
                       </label>
                     </div>

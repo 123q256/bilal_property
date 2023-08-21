@@ -70,7 +70,7 @@ img.alignright {
                         <?php $bedroomsfilters = App\Models\Bedroom::where('status', '0')->get();   ?> 
 
                     <select onchange="filterfunction(this)" class="filter_dropdown" name="wgtmsr" id="bedroomfilter" >
-                        <option  value="" >Select By Bedroom</option>
+                        <option  value="" >Bedroom</option>
                         @foreach($bedroomsfilters as $key => $bedroomsfilter)
                     
                       
@@ -100,7 +100,7 @@ img.alignright {
                 <?php $CompletionDate_filters = App\Models\CompletionDate::where('status','0')->get(); ?> 
 
                     <select onchange="filterfunction(this)" class="filter_dropdown" name="wgtmsr" id="completionfilter" >
-                        <option value=""  >select By Completion Date</option>
+                        <option value=""  >Completion Date</option>
                         @foreach($CompletionDate_filters as $key => $CompletionDate_filter)
                         <option value="{{ $CompletionDate_filter->id }}/{{ $developers->id }}">{{ $CompletionDate_filter->completions }}</option>
                         @endforeach
@@ -111,7 +111,7 @@ img.alignright {
                      <div class="dropdown grid_drop_down_item5" >
                       <?php $price_filters = App\Models\Price::selectRaw('DISTINCT price_listing')->orderBy('price_listing', 'ASC')->where('developers_id', $developers->id)->get(); ?>
                     <select onchange="filterfunction(this)"  class="filter_dropdown" name="wgtmsr" id="pricefilter" >
-                        <option value="">select By Price/Budget</option>
+                        <option value="">Price/Budget</option>
                         @foreach($price_filters as $key => $price_filter)
                         <option value="{{ $price_filter->price_listing }}/{{ $developers->id }}">{{ $price_filter->price_listing }}</option>
                         @endforeach
@@ -121,7 +121,7 @@ img.alignright {
                     <div class="dropdown grid_drop_down_item6" >
                       <?php $sqfoot_filters = App\Models\Sqfoot::selectRaw('DISTINCT sqfoot_listing')->orderBy('sqfoot_listing', 'ASC')->where('developers_id', $developers->id)->get(); ?>
                     <select onchange="filterfunction(this)"  class="filter_dropdown" name="wgtmsr" id="sqfootfilter" >
-                      <option value="">select By sqft</option>
+                      <option value="">sqft</option>
                       @foreach($sqfoot_filters as $key => $sqfoot_filter)
                       <option value="{{ $sqfoot_filter->sqfoot_listing }}/{{ $developers->id }}">{{ $sqfoot_filter->sqfoot_listing }}</option>
                       @endforeach

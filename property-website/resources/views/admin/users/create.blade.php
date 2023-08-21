@@ -127,14 +127,19 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label><strong> Name</strong></label>
-                  <input class="form-control" name="name" type="text" placeholder="Name *">
+                  <input class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  type="text" placeholder="Name *">
+                  @error('name')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label> <strong>Email</strong></label>
                 
-                  <input type="email" placeholder="Email *" id="email"   class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                  <input type="email" placeholder="Email *" id="email"   class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
                   @error('email')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -146,7 +151,7 @@
               <div class="col-md-6">
                 <div class="mb-3 position-relative">
                   <label> <strong>Password</strong></label>
-                  <input name="password" id="password-field" type="password" placeholder="Password *" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                  <input name="password" id="password-field" type="password" placeholder="Password *" class="form-control  @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
                   <span style="position: absolute; top: 40px;right: 7px;font-size: 25px;" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   <span class="icon is-small is-left">
                  
@@ -164,24 +169,30 @@
                 <div class="mb-3">
                   <label> <strong>Confirm Password</strong></label>
              
-                  <input  id="password-confirm" class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password *" required autocomplete="new-password">
+                  <input  id="password-confirm" class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password *"  autocomplete="new-password">
+                  @error('password_confirmation')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
                   <span style="position: absolute; top: 40px;right: 7px;font-size: 25px;" toggle="#password-confirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   <span class="icon is-small is-left"></span>
-                  
+               
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="mb-3">
                   <label><strong>Select Role</strong></label>
-                  <select name="user_role" class="form-select" required>
-                  <option default disabled selected >Select Role</option>
-                 
-                  <option value="0">User</option>
-                  <option value="1">Admin</option>
-                
-               
-                 
+                  <select name="user_role" class="form-select @error('user_role') is-invalid @enderror">
+                    <option value="">Select Role</option>
+                    <option value="0" {{ old('user_role') == 0 ? 'selected' : '' }}>User</option>
+                    <option value="1" {{ old('user_role') == 1 ? 'selected' : '' }}>Admin</option>
                   </select>
+                  @error('user_role')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
 

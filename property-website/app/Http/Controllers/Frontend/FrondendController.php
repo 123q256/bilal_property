@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\CompletionDate;
 use App\Models\TypeOfProperty;
 use App\Models\ListingProperty;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\ListingPropertyImage;
 
@@ -146,4 +147,32 @@ $price_filters = Price::selectRaw('DISTINCT price_listing')->orderBy('price_list
             }
 
     
+
+
+            public function filter_resetbtn_bilal()
+            {
+                // die();
+        
+
+                $tableRow = '';
+                $items = ListingProperty::
+                leftJoin("completion_dates","completion_dates.id","listing_properties.handover")
+                ->leftJoin("type_of_properties","type_of_properties.id","listing_properties.type_of_property")
+                ->leftJoin("bedrooms","bedrooms.id","listing_properties.number_of_bedrooms")
+                ->leftJoin("payment_plans","payment_plans.id","listing_properties.payment_plane")
+                ->leftJoin("locations","locations.id","listing_properties.location")
+                ->leftJoin("developers","developers.id","listing_properties.about_the_developer")
+                ->select('listing_properties.*', 'type_of_properties.property_type', 'bedrooms.number_of_bed', 'payment_plans.payment_plane_years', 'locations.location', 'developers.developer_name', 'completion_dates.completions',
+                DB::raw('(select list_pro_image from listing_property_images where list_property_id  =   listing_properties.id order by id asc limit 1) as photo')  
+                )->get();
+
+                return response()->json([
+                    'status' => 200,
+                    'record' => $items
+                ]);
+        
+
+        
+            }
+        
 }

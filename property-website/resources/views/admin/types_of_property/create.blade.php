@@ -177,8 +177,13 @@ span{
 
               <div class="col">
                 <div class="mb-3">
-                  <label> Type of Property</label>
-                  <input class="form-control"  name="type_of_property" type="text" placeholder="Add Property of Type*">
+                  <label><strong> Type of Property</strong></label>
+                  <input class="form-control @error('type_of_property') is-invalid @enderror"  name="type_of_property" type="text" placeholder="Add Property of Type*">
+                  @error('type_of_property')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -187,12 +192,12 @@ span{
                 <div class="mb-3">
                   <div class="col-md-12 mt-2">
                     <div class="field">
-                      <label for="label">Status</label>
+                  <label><strong> Status</strong></label>
                       Checked:Hidden ,Unchecked:Visible
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"       name="status">
+                          <input type="checkbox"   class="check_get_id"   {{ old('status') ? 'checked' : '' }}     name="status">
                           <span class="slider round"></span>
                       </label>
                     </div>

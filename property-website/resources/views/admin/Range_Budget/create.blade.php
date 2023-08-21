@@ -122,14 +122,19 @@
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong> Currency</strong></label>
-                            <select name="currency_ids" class="form-select" >
-                              <option disabled default ><strong>Select Currency</strong></option>
+                            <select name="currency_ids" class="form-select @error('currency_ids') is-invalid @enderror" >
+                              <option value="" ><strong>Select Currency</strong></option>
                               @forelse ($currencys as $currency)
-                              <option value="{{ $currency->id }}">{{ $currency->currency }}</option>
+                              <option value="{{ $currency->id }}" {{ old('currency_ids') == $currency->id ? 'selected' : '' }} >{{ $currency->currency }}</option>
                               @empty
                               <option value="option2">No Found Currency</option>
                               @endforelse
                             </select>
+                            @error('currency_ids')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -138,7 +143,12 @@
               <div class="col">
                 <div class="mb-3">
                   <label><strong> Add Budget Range</strong></label>
-                  <input class="form-control" name="budget" type="text" placeholder="Add Budget *" required>
+                  <input class="form-control @error('budget') is-invalid @enderror" name="budget" value="{{ old('budget') }}"  type="text" placeholder="Add Budget *" >
+                  @error('budget')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -152,7 +162,7 @@
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"    name="status">
+                          <input type="checkbox"   class="check_get_id"  {{ old('status') ? 'checked' : '' }}   name="status">
                           <span class="slider round"></span>
                         </label>
                     </div>

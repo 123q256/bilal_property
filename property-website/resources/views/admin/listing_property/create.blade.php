@@ -152,7 +152,12 @@ video{
                           <div class="col">
                             <div class="mb-3">
                               <label><strong>Title/Name</strong></label>
-                              <input class="form-control" name="title_name"  type="text" placeholder="Title/Name *">
+                              <input class="form-control @error('title_name') is-invalid @enderror" name="title_name" value="{{ old('title_name') }}"  type="text" placeholder="Title/Name *">
+                              @error('title_name')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
                             </div>
                           </div>
                         </div>
@@ -163,14 +168,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Select Types of property</strong></label>
-                            <select name="types_of_property" class="form-select">
+                            <select name="types_of_property" class="form-select @error('types_of_property') is-invalid @enderror">
                             <option value="">Select Types of property</option>
                             @forelse ($TypeOfPropertys as $TypeOfProperty)
-                            <option value="{{ $TypeOfProperty->id }}">{{ $TypeOfProperty->property_type }}</option>
+                            <option value="{{ $TypeOfProperty->id }}" {{ old('types_of_property') == $TypeOfProperty->id ? 'selected' : '' }}>{{ $TypeOfProperty->property_type }}</option>
                             @empty
                             <option value="option2">No Found Property</option>
                             @endforelse
                             </select>
+                            @error('types_of_property')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
 
@@ -181,14 +191,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Bed Room Number</strong></label>
-                            <select  name="bed_room_no"  class="form-select">
+                            <select  name="bed_room_no"  class="form-select @error('bed_room_no') is-invalid @enderror">
                               <option value="">Select Bed Room Number</option>
                               @forelse ($Bedrooms as $Bedroom)
-                              <option value="{{ $Bedroom->id }}">{{ $Bedroom->number_of_bed }}</option>
+                              <option value="{{ $Bedroom->id }}" {{ old('bed_room_no') == $Bedroom->id ? 'selected' : '' }}>{{ $Bedroom->number_of_bed }}</option>
                               @empty
                               <option value="option2">No Found Bed Room</option>
                               @endforelse
                             </select>
+                            @error('bed_room_no')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -209,14 +224,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Add Completion Date/Handover</strong></label>
-                            <select name="handover"  class="form-select">
-                              <option selected disabled default >Select Completion Date</option>
+                            <select name="handover"  class="form-select @error('handover') is-invalid @enderror">
+                              <option value="" >Select Completion Date</option>
                               @forelse ($CompletionDates as $CompletionDate)
-                              <option value="{{ $CompletionDate->id }}">{{ $CompletionDate->completions }}</option>
+                              <option value="{{ $CompletionDate->id }}" {{ old('handover') == $CompletionDate->id ? 'selected' : '' }}>{{ $CompletionDate->completions }}</option>
                               @empty
                               <option value="option2">No Found Completion Date</option>
                               @endforelse
                             </select>
+                            @error('handover')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -254,7 +274,7 @@ video{
                             
                               <label class="file-label">
                                 <input  id="videoFiles" class="" name="videos[]"  type="file" style="max-width: 100%;" multiple>
-                             
+                            
                               </label>
                             </div>
                           </div>
@@ -276,14 +296,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Payment Plans Heading</strong></label>
-                            <select  name="payment_plan" class="form-select">
-                              <option selected disabled default >Select Payment Plans</option>
+                            <select  name="payment_plan" class="form-select @error('payment_plan') is-invalid @enderror">
+                              <option value="" >Select Payment Plans</option>
                               @forelse ($PaymentPlans as $PaymentPlan)
-                              <option value="{{ $PaymentPlan->id }}">{{ $PaymentPlan->payment_plane_years }}</option>
+                              <option value="{{ $PaymentPlan->id }}" {{ old('payment_plan') == $PaymentPlan->id ? 'selected' : '' }}>{{ $PaymentPlan->payment_plane_years }}</option>
                               @empty
                               <option value="option2">No Found Payment</option>
                               @endforelse
                             </select>
+                            @error('payment_plan')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -292,7 +317,12 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>First payment Plans</strong></label>
-                            <input class="form-control" name="first_payment"  type="text" placeholder="First payment Plans">
+                            <input class="form-control @error('first_payment') is-invalid @enderror" name="first_payment" value="{{ old('first_payment') }}" type="text" placeholder="First payment Plans">
+                            @error('first_payment')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -301,7 +331,12 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>Second payment Plans</strong></label>
-                            <input class="form-control" name="second_payment"  type="text" placeholder="Second payment Plans">
+                            <input class="form-control @error('second_payment') is-invalid @enderror" name="second_payment"  value="{{ old('second_payment') }}" type="text" placeholder="Second payment Plans">
+                            @error('second_payment')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
                           </div>
                         </div>
                       </div>
@@ -312,14 +347,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Add Currency</strong></label>
-                            <select name="change_currency"  class="form-select">
-                              <option selected disabled default >Select Currency</option>
+                            <select name="change_currency"  class="form-select @error('change_currency') is-invalid @enderror">
+                              <option value="" >Select Currency</option>
                               @forelse ($currencys as $currency)
-                              <option value="{{ $currency->id }}">{{ $currency->currency }}</option>
+                              <option value="{{ $currency->id }}" {{ old('change_currency') == $currency->id ? 'selected' : '' }}>{{ $currency->currency }}</option>
                               @empty
                               <option value="option2">No Found Currency</option>
                               @endforelse
                             </select>
+                            @error('change_currency')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -343,7 +383,12 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>Add Budget</strong></label>
-                            <input class="form-control" name="budget_select"  type="text" placeholder="Add Budget">
+                            <input class="form-control @error('budget_select') is-invalid @enderror" name="budget_select" value="{{ old('budget_select') }}" type="text" placeholder="Add Budget">
+                            @error('budget_select')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
                           </div>
                         </div>
                       </div>
@@ -353,7 +398,12 @@ video{
                           <div class="mb-3">
                             <label><strong>Enter a desired Size in the format of "integer * integer":</strong></label>
                     
-                            <input  placeholder="Enter value in format:eg275*456" value="" id="add_desired" type="text" name="desired_size" class="form-control">
+                            <input  placeholder="Enter value in format:eg275*456" value="{{ old('desired_size') }}" id="add_desired" type="text" name="desired_size" class="form-control @error('desired_size') is-invalid @enderror">
+                            @error('desired_size')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                             <span id="show_seven" style="color: red;display:none;">Required Field </span>
                             <span id="errorText" style="color: red;"></span><br>
                           </div>
@@ -369,14 +419,19 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Locations</strong></label>
-                            <select name="location" class="form-select">
-                              <option selected disabled default>Select Location</option>
+                            <select name="location" class="form-select @error('location') is-invalid @enderror">
+                              <option value=""  >Select Location</option>
                               @forelse ($Locations as $Location)
-                              <option value="{{ $Location->id }}">{{ $Location->location }}</option>
+                              <option value="{{ $Location->id }}" {{ old('location') == $Location->id ? 'selected' : '' }}>{{ $Location->location }}</option>
                               @empty
                               <option value="option2">No Found Location</option>
                               @endforelse
                             </select>
+                            @error('location')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -385,7 +440,13 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>Highlights</strong></label>
-                            <textarea class="form-control" placeholder="Highlights" name="highlights" id="editor_one"  rows="3"></textarea>
+                          
+                            <textarea class="form-control @error('highlights') is-invalid @enderror" placeholder="Highlights" name="highlights" id="editor_one"  rows="3">{{ old('highlights') }}</textarea>
+                            @error('highlights')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -395,8 +456,13 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>Project Details</strong> </label>
-                            <textarea class="form-control" placeholder="Project Details " name="Project_details" id="editor_two" rows="3"></textarea>
-                          </div>
+                              <textarea class="form-control @error('Project_details') is-invalid @enderror" placeholder="Project Details" name="Project_details" id="editor_two" rows="3">{{ old('Project_details') }}</textarea>
+                              @error('Project_details')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                            </div>
                         </div>
                       </div>
 
@@ -405,7 +471,13 @@ video{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Amenities</strong> </label>
-                  <textarea class="form-control" placeholder="Amenities" name="amenities_details" id="editor_three" rows="3"></textarea>
+                
+                  <textarea class="form-control @error('amenities_details') is-invalid @enderror" placeholder="Amenities" name="amenities_details" id="editor_three" rows="3">{{ old('amenities_details') }}</textarea>
+                  @error('amenities_details')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -413,7 +485,13 @@ video{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Location </strong></label>
-                  <textarea class="form-control" placeholder="Location" name="location_details" id="editor_four" rows="3"></textarea>
+                
+                  <textarea class="form-control @error('location_details') is-invalid @enderror" placeholder="Location" name="location_details" id="editor_four" rows="3">{{ old('location_details') }}</textarea>
+                  @error('location_details')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -421,7 +499,13 @@ video{
               <div class="col">
                 <div class="mb-3">
                   <label><strong>Interiors and Units</strong> </label>
-                  <textarea class="form-control" placeholder="Interiors and Units" name="Interiors_and_Units" id="editor_five" rows="3"></textarea>
+               
+                  <textarea class="form-control @error('Interiors_and_Units') is-invalid @enderror" placeholder="Interiors and Units" name="Interiors_and_Units" id="editor_five" rows="3">{{ old('Interiors_and_Units') }}</textarea>
+                  @error('Interiors_and_Units')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -432,7 +516,13 @@ video{
                         <div class="col">
                           <div class="mb-3">
                             <label><strong>Incentives</strong></label>
-                            <textarea class="form-control" placeholder="Incentives" name="incentives" id="editor_six" rows="3"></textarea>
+                         
+                            <textarea class="form-control @error('incentives') is-invalid @enderror" placeholder="Incentives" name="incentives" id="editor_six" rows="3">{{ old('incentives') }}</textarea>
+                            @error('incentives')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div>
                         </div>
                       </div>
@@ -441,16 +531,21 @@ video{
                         <div class="col-sm-12">
                           <div class="mb-3">
                             <label><strong>Developers</strong></label>
-                            <select name="developer_information" class="form-select">
-                              <option selected disabled default >Select Developer </option>
+                            <select name="developer_information" class="form-select @error('developer_information') is-invalid @enderror">
+                              <option value="" >Select Developer </option>
                           
                  
                              @forelse ($Developers as $Developer)
-                             <option value="{{ $Developer->id }}">{{ $Developer->developer_name }}</option>
+                             <option value="{{ $Developer->id }}" {{ old('developer_information') == $Developer->id ? 'selected' : '' }}>{{ $Developer->developer_name }}</option>
                              @empty
                              <option value="option2">No Found Developer</option>
                              @endforelse
                             </select>
+                            @error('developer_information')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                           </div> 
                         </div>
                       </div>
@@ -464,7 +559,7 @@ video{
                         </div>
                         <!-- Default switch -->
                             <label class="switch">
-                              <input type="checkbox"   class="check_get_id"    name="status">
+                              <input type="checkbox"   class="check_get_id"  {{ old('status') ? 'checked' : '' }}   name="status">
                               <span class="slider round"></span>
                           </label>
                           </div>

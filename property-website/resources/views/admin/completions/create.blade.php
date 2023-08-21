@@ -127,7 +127,12 @@
               <div class="col">
                 <div class="mb-3">
                   <label> <strong>Add Completions Date</strong></label>
-                  <input class="form-control" name="completions" type="text" placeholder="Add Completions Date *">
+                  <input class="form-control @error('completions') is-invalid @enderror" name="completions" type="text" placeholder="Add Completions Date *">
+                  @error('completions')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+              @enderror
                 </div>
               </div>
             </div>
@@ -141,7 +146,7 @@
                   </div>
                   <!-- Default switch -->
                         <label class="switch">
-                          <input type="checkbox"   class="check_get_id"    name="status">
+                          <input type="checkbox"  {{ old('status') ? 'checked' : '' }}  class="check_get_id"    name="status">
                           <span class="slider round"></span>
                       </label>
                     </div>

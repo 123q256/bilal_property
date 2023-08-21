@@ -26,6 +26,7 @@ class AddBudgetController extends Controller
           // dd($request->all());  
         $this->validate($request, [
              'currency_ids' => 'required',           
+             'budget' => 'required',           
         ]);
     
         $addcreate = new Addbudget;

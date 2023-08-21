@@ -327,7 +327,7 @@ h1.heading {
                     <div class="col-md-6 col-lg-3">
                       <div class="card">
 
-                        <a href="{{ url('/developer_detail'.'/'.$developer->id) }}" class="img-card"><img src="{{ asset('/admin_images/developer_logo/'.$developer->developer_logo) }}" style="padding: 15px;" alt="Palm Springs Road"/></a>
+                        <a href="{{ url('/developer/details'.'/'.$developer->id) }}" class="img-card"><img src="{{ asset('/admin_images/developer_logo/'.$developer->developer_logo) }}" style="padding: 15px;" alt="Palm Springs Road"/></a>
 
                           <?php 
                           // dd($listing_image->list_pro_image);
@@ -338,7 +338,7 @@ h1.heading {
                             <button id="hellodo" type="button" value="{{ $developer->id }}" style="background-color: #333333;color:#fff;border:none;" class="openModalBtn setbutton" >Project List</button>
                            
 
-                            <a href="{{ url('/developer_detail' .'/' .$developer->id) }}" style="padding-left: 20px;
+                            <a href="{{ url('/developer/details' .'/' .$developer->id) }}" style="padding-left: 20px;
                               padding-right: 20px;" class="btn btn-primary details_a1">DETAILS</a>
                           </div>
                       </div>

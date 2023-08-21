@@ -214,19 +214,17 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.849); /* Blurred background */
     display: none;
+    z-index: 999;
+  
 }
 
 .spinner {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3; /* Light grey border */
-    border-top: 5px solid #3498db; /* Blue border on top */
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
+    left: 46%;
+  
+ 
+ 
 }
 
 @keyframes spin {
@@ -359,6 +357,115 @@
   }
 
 }
+
+
+
+@media (max-width: 414px) {
+.bit_color {
+    height: 60vh!important;
+}
+}
+
+@media (max-width: 428px) {
+.bit_color {
+    height: 60vh!important;
+}
+.Photo_Gallery_1 {
+  float: left;
+  margin-left: 57px!important;
+}
+.chat_box {
+  position: fixed;
+  right: 30px;
+  bottom: 85px;
+  width: 370px;
+}
+}
+
+@media (max-width: 393px) {
+
+.chat_box {
+position: fixed;
+right: 30px;
+bottom: 85px;
+width: 330px;
+}
+
+}
+
+@media (max-width: 384px) {
+
+  .chat_box {
+  position: fixed;
+  right: 30px;
+  bottom: 85px;
+  width: 330px;
+}
+}
+
+@media (max-width: 375px) {
+.bit_color {
+    height: 60vh!important;
+}
+.Location_Map_1 {
+  float: left;
+  margin-left: 41px!important;
+}
+.Photo_Gallery_1 {
+  float: left;
+  margin-left: 66px !important;
+}
+.chat_box {
+  position: fixed;
+  right: 30px;
+  bottom: 85px;
+  width: 320px;
+}
+}
+@media (max-width: 320px) {
+.bit_color {
+    height: 90vh!important;
+}
+.chat_box {
+  position: fixed;
+  right: 30px;
+  bottom: 85px;
+  width: 265px;
+}
+}
+
+@media (max-width: 411px) {
+.bit_color {
+    height: 90vh!important;
+}
+}
+
+
+@media (max-width: 1280px) {
+.Payment_Plan_1 {
+      float: left;
+      margin-left: 41px;
+    }
+    }
+
+    @media (max-width: 1025px) {
+      .Location_Map_1 {
+  float: left;
+  margin-left: 65px!important;
+}
+.Photo_Gallery_1 {
+  float: left;
+  margin-left: 44px !important;
+}
+    }
+    @media (max-width: 512px) {
+.Location_Map_1 {
+      float: left;
+      margin-left: 51px;
+    }
+    }
+
+
 @media (max-width: 680px) {
 
        
@@ -374,6 +481,71 @@
     padding: 20px;
   }
     }
+
+  
+    @media (max-width: 412px) {
+.Location_Map_1 {
+    float: left;
+    margin-left: 42px!important;
+}
+.Photo_Gallery_1 {
+    float: left;
+    margin-left: 62px !important;
+}
+}
+  
+@media (max-width: 320px) {
+
+.Brochure_1 {
+float: left;
+margin-left: 16px!important;
+}
+.Floor_Plans_1 {
+float: left;
+margin-left: 52px!important;
+}
+.Location_Map_1 {
+float: left;
+margin-left: 17px!important;
+}
+.Photo_Gallery_1 {
+float: left;
+margin-left: 43px !important;
+}
+.Payment_Plan_1 {
+float: left;
+margin-left: 16px!important;
+}
+}
+
+@media (max-width: 280px) {
+  .Brochure_1 {
+  float: left;
+  margin-left: 65px!important;
+}
+.Floor_Plans_1 {
+  float: left;
+  margin-left: 72px!important;
+}
+.Location_Map_1 {
+  float: left;
+  margin-left: 67px!important;
+}
+.Photo_Gallery_1 {
+  float: left;
+  margin-left: 70px !important;
+}
+.Payment_Plan_1 {
+  float: left;
+  margin-left: 69px!important;
+}
+.chat_box {
+    position: fixed;
+    right: 30px;
+    bottom: 85px;
+    width: 230px;
+}
+}
 
 #pakistancontainer{
     display: flex;
@@ -408,7 +580,7 @@
 /* Modal content */
 .cl-popup-box {
   border-radius: 5px;
-  max-width: 60%;
+  max-width: 80%;
   max-height: 95%;
   overflow-y: auto;
   background-color: #ffffff;
@@ -466,6 +638,11 @@ cursor: pointer;
 #menus_radius_id{
   color: #ffffff!important;
 }
+
+.wrapper-messages{
+  margin-bottom: 65.6094px;
+    max-height: 330.953px;
+}
         </style>
 <body>
 
@@ -473,7 +650,7 @@ cursor: pointer;
     
 <!-- Modal -->
 <div class="cl-popup-wrap" style="display: none;">
-    <div class="cl-popup-box" style="width: 60%;margin-top:1px;">
+    <div class="cl-popup-box" style="width: 72%!important;margin-top:1px;">
       <div class="cl-popup-box-h">
         <div class="cl-popup-box-title pl-3">
           REGISTER YOUR INTEREST
@@ -530,6 +707,7 @@ cursor: pointer;
             <textarea style="background-color: #f2f2f2;" name="interest_message" class="form-control" id="interest_message" rows="3"></textarea>
             <span id="show_two" style="color: red;display:none;">Required Field </span>
           </div>
+          
           <div style="margin: 7px;" class="d-flex justify-content-center align-items-center">
           <div class="g-recaptcha" data-sitekey="6Lff74knAAAAAIOleVZHS35Ltf9MObDyVYvGvj0S"></div><br>
          
@@ -563,9 +741,16 @@ cursor: pointer;
     {{-- <button id="showSpinner">Show Spinner</button> --}}
 
     <!-- Spinner loading page -->
-    <div id="spinnerOverlay" style="z-index: 999">
-        <div class="spinner"></div>
-        <div class="loadingText" style="font-size: 25px;">Please Wait</div>
+    <div id="spinnerOverlay"   style="flex-direction: column;justify-content: center; align-items: center; min-height: 100vh;" >
+      <div class="spinner" id="loader-4">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {{-- <div class="spinner"></div>
+      <div class="loadingText" style="font-size: 25px;">Please Wait</div> --}}
+      
     </div>
        {{-- Loader End  --}}
 
@@ -824,6 +1009,7 @@ $("#products").show();
 
 
 $(document).ready(function(){
+  // $('#spinnerOverlay').hide();
 // alert('ff');
     setTimeout(function() {
         // Use the slideUp() method to hide the div with an animation effect

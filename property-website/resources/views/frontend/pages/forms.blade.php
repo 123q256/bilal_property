@@ -351,7 +351,7 @@
 
 
                        <div  class="col-md-6 mt-3">  <button type="submit" style="background-color: #0367A6;width: 110px;color: #FFFFFF;margin-left: 80px;" id="bilal" class="btn  b_nextbtns">Continue</button></div>
-                       <div  class="col-md-9 mt-3">  <button type="button" style="background-color: #0367A6;width: 110px;color: #FFFFFF;margin-left: 80px;width:138px;display:none;"  class="btn buttonload"> <i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;processing...</button></div>
+                    
                        
                        
                     
@@ -705,7 +705,7 @@ $(document).ready(function() {
               if(password.value != confirm_password.value){
                 // alert('hello');
                 $('#pass_match').show();
-                $('#buttonload').hide();
+            
                 $('#errorMessage').hide();
                 return false;
                
@@ -726,8 +726,8 @@ $(document).ready(function() {
         // alert(formElem);
         // console.log(formElem); 
         $('#spinnerOverlay').show();
-        $('.buttonload').show();
-        $('.b_nextbtns').hide();
+      
+
 
         
       
@@ -748,8 +748,8 @@ $(document).ready(function() {
             contentType: false,
             success: function(response) {
                 if (response.status == 200) {
-                    $('.buttonload').hide();
-                    $('.b_nextbtns').show();
+                   
+                  
                   $('#spinnerOverlay').hide();
 
                   Swal.fire({
@@ -774,8 +774,8 @@ $(document).ready(function() {
 
 
                 if (response.status == 100) {
-                    $('.buttonload').hide();
-                    $('.b_nextbtns').show();
+              
+                   
                   $('#spinnerOverlay').hide();
 
                     Swal.fire(
@@ -789,8 +789,8 @@ $(document).ready(function() {
                 if (response.status == 300) {
 
                     $('#pass_match').show();
-                    $('.buttonload').hide();
-                    $('.b_nextbtns').show();
+            
+                    
                   $('#spinnerOverlay').hide();
 
                  $("html, body").animate({ scrollTop: "-=20px" }, "slow");
@@ -799,8 +799,8 @@ $(document).ready(function() {
                         
                 }
                 if (response.status == 400) {
-                    $('.buttonload').hide();
-                    $('.b_nextbtns').show();
+                  
+                  $('#spinnerOverlay').hide();
                     Swal.fire(
                         'Errors',
                         'Information add Successfully But Mail Somethig Wrongs'+response.error,
