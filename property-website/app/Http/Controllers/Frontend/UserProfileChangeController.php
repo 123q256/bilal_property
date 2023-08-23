@@ -22,7 +22,7 @@ class UserProfileChangeController extends Controller
         $request->validate([
             'first_name'=>['required'],
             'last_name'=>['required'],
-            'email'=>['required'],
+            // 'email'=>['required'],
         ]);
 
       $last_pho = $request->phoneuser_hide.''.$request->phone_no;

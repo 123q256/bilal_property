@@ -109,9 +109,9 @@
                     @if(isset(auth()->user()->phone_no))
                     <div class="col-md-12" id="change_numbers" >
                         <div class="mb-3" style="position: relative;">
-                            <label><strong>Phone No</strong></label><br>
+                            <label class="mb-3"><strong>Phone No</strong></label><br>
                     <input type="text" name="phone_no"   value="{{auth()->user()->phone_no}}" class="form-control"><br>
-                    <a style="position: absolute; right: 0; top: 23px;" class="btn btn-primary" onclick="changePhoneNumber()">Change Number</a>
+                    <a style="position: absolute; right: 0; top: 40px;" class="btn btn-primary" onclick="changePhoneNumber()">Change Number</a>
                   
                 </div>
             </div>
@@ -119,9 +119,9 @@
 
             <div class="col-md-12" id="backnumbers" style="position: relative;display:none;">
                 <div class="mb-3" style="display: grid;position: relative;">
-                    <label><strong>Phone No</strong></label><br>
+                    <label class="mb-3"><strong>Phone No</strong></label><br>
                     <input type="text" name="phone_no" style="" id="phone_three" class="form-control add-ini">
-                    <a style="position: absolute; right: 0; top: 23px;"  class="btn btn-primary" onclick="backPhoneNumber()">Back</a>
+                    <a style="position: absolute; right: 0; top: 40px;"  class="btn btn-primary" onclick="backPhoneNumber()">Back</a>
 
                     
                 </div>
