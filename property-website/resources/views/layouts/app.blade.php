@@ -42,6 +42,9 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
  <!-- YajraTable CSS Link Start -->
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" rel="stylesheet"/>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
 </head>
 
 
@@ -358,7 +361,14 @@
 
 }
 
-
+@media (max-width: 800px) {
+  .set_position {
+  position: absolute!important;
+  top: 4px!important;
+  left: 53px!important;
+  z-index: 1!important;
+}
+}
 
 @media (max-width: 414px) {
 .bit_color {
@@ -379,6 +389,12 @@
   right: 30px;
   bottom: 85px;
   width: 370px;
+}
+.set_position {
+  position: absolute!important;
+  top: 7px!important;
+  left: 68px!important;
+  z-index: 1!important;
 }
 }
 
@@ -420,6 +436,15 @@ width: 330px;
   right: 30px;
   bottom: 85px;
   width: 320px;
+}
+.one_img_set {
+    width: 90%!important;
+}
+.set_position {
+  position: absolute!important;
+  top: 5px!important;
+  left: 60px!important;
+  z-index: 1!important;
 }
 }
 @media (max-width: 320px) {
@@ -643,6 +668,109 @@ cursor: pointer;
   margin-bottom: 65.6094px;
     max-height: 330.953px;
 }
+
+
+
+
+
+/* User profile CSS start */
+
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    /* background: #fff; */
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -7%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+
+/* User profile CSS start */
+
+
         </style>
 <body>
 
@@ -1059,7 +1187,8 @@ document.querySelector('.scroll-to-top').addEventListener('click', function(e) {
     window.intlTelInput(input, {
         separateDialCode: true,
         excludeCountries: ["in", "il"],
-        preferredCountries: ["pk", "ru", "jp", "no"]
+        preferredCountries: ["pk", "ru", "jp", "no"],
+        utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
     });
 </script>
  <!-- Country code Dropdown js-->
@@ -1069,10 +1198,40 @@ document.querySelector('.scroll-to-top').addEventListener('click', function(e) {
     window.intlTelInput(input, {
         separateDialCode: true,
         excludeCountries: ["in", "il"],
-        preferredCountries: ["pk", "ru", "jp", "no"]
+        preferredCountries: ["pk", "ru", "jp", "no"],
+        utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
     });
 </script>
  <!-- Country code Dropdown js-->
+
+   <!-- Country code Dropdown js-->
+   <script defer>
+      var input = document.querySelector("#phone_three");
+            var instance = window.intlTelInput(input, {
+                separateDialCode: true,
+                excludeCountries: ["in", "il"],
+                preferredCountries: ["pk", "ru", "jp", "no"],
+                 utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+            });
+
+            // Set the phone number and country
+              instance.setNumber("3434567894");
+
+              $('#phone_three').val(numfklsf);
+            instance.setCountry("ru");
+</script>
+ <!-- Country code Dropdown js-->
+
+
+{{-- <script>
+
+var phone_number = window.intlTelInput(document.querySelector("#phone_three"), {
+  separateDialCode: true,
+  preferredCountries:["in"],
+  hiddenInput: "full",
+  utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+});
+</script> --}}
 
  <!-- gallery images show -->
  <script src="{{ asset('front_end/dist/simple-lightbox.js?v2.14.0') }}"></script>
@@ -1268,6 +1427,7 @@ $('#register').click(function() {
 
 
     var set_phon = $('.iti__selected-dial-code').text();
+    
     //alert(set_phon);
       $('#hide_abc').val(set_phon);
        $('#spinnerOverlay').show();
@@ -1745,6 +1905,25 @@ $('#resetButton_two').on('click', function() {
    });
    
   </script>
+
+
+<script>
+    $('#phone_three').val('');
+     $('#register_user').click(function() {
+     
+    var originalString = $('.iti__selected-dial-code').text();
+   // alert(originalString);
+        var searchString = "+92";
+        var modifiedString = originalString.replace(searchString, '');
+
+        // Assuming you want to set the modified string as the value of an input field
+        $('#phoneuser_hide').val(modifiedString);
+
+
+
+  });
+
+</script>
  
  @yield('script')
 </body>

@@ -248,8 +248,11 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     });
 
-
-
+    Route::get('/profile', [App\Http\Controllers\Frontend\UserProfileChangeController::class, 'index']);
+    Route::post('/profile', [App\Http\Controllers\Frontend\UserProfileChangeController::class, 'updateuserdetails']);
+    Route::get('/change-password', [App\Http\Controllers\Frontend\UserProfileChangeController::class, 'passwordcreate']);
+    Route::post('/change-password', [App\Http\Controllers\Frontend\UserProfileChangeController::class, 'changepassword']);
+    Route::get('/image/delete/{id}', [App\Http\Controllers\Frontend\UserProfileChangeController::class, 'deleteImage']);
 
     Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('google.login');
     Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);

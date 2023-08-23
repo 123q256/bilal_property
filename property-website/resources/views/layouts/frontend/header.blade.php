@@ -30,7 +30,7 @@
                 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </a>
 
                         <div style=" position: relative!important; z-index: 999!important;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -39,6 +39,12 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+                            <a style="color: #000000" class="dropdown-item" href="{{ url('/change-password') }}">
+                             {{ __('Change Password') }}
+                         </a>
+                         <a style="color: #000000" class="dropdown-item" href="{{ url('/profile') }}">
+                          {{ __('Change Profile') }}
+                      </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

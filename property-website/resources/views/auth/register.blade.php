@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Login</title>
+    <title>Register</title>
    <!-- Google font-->
    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
@@ -59,12 +59,12 @@
                   <h4>Create your account</h4>
                   <p>Enter your personal details to create account</p>
                   <div class="form-group">
-                    <label class="col-form-label pt-0">Name</label>
+                    <label class="col-form-label pt-0">First Name</label>
                     <div class="row g-2">
                       <div class="col-12">
-                        <input id="name" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="first_name" type="text" placeholder="First Name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
-                        @error('name')
+                        @error('first_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -73,6 +73,23 @@
                      
                     </div>
                   </div>
+                  <div class="form-group">
+                    <label class="col-form-label pt-0">Last Name</label>
+                    <div class="row g-2">
+                      <div class="col-12">
+                        <input id="last_name" type="text" placeholder="First Name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+
+                        @error('last_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+                     
+                    </div>
+                  </div>
+
+
                   <div class="form-group">
                     <label class="col-form-label">Email Address</label>
                     <input id="email" type="email" placeholder="test@gmail.com"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
